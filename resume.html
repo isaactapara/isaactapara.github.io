@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resume | SILISIL ISAAC TAPARA</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
+  <header class="sr">
     <div class="container text-center">
       <h1>SILISIL ISAAC TAPARA</h1>
       <p class="subtitle">Cybersecurity Advocate & Secure Software Engineer</p>
@@ -24,26 +24,26 @@
   </header>
 
   <main class="container">
-    <section id="summary">
+    <section id="summary" class="sr">
       <h2>Personal Statement</h2>
       <p>A security-minded software engineer passionate about building reliable systems and promoting cyber hygiene. Skilled in Python, C++, ethical hacking, and secure network design. Committed to learning, building, and helping society stay safe online.</p>
     </section>
 
-    <section id="education">
+    <section id="education" class="sr">
       <h2>Education</h2>
       <ul>
         <li><strong>Bachelor of Science in Software Engineering</strong><br>Zetech University, Kenya — Expected 2026</li>
       </ul>
     </section>
 
-    <section id="certs">
+    <section id="certs" class="sr">
       <h2>Certifications</h2>
       <ul>
         <li>Professional Certificate in Ethical Hacking — Cisco Networking Academy (2025)</li>
       </ul>
     </section>
 
-    <section id="experience">
+    <section id="experience" class="sr">
       <h2>Projects & Experience</h2>
       <ul>
         <li><strong>PyScanX</strong> — Port scanner and banner grabber (Python).<br>Scans multiple ports and identifies exposed services for ethical security testing.</li>
@@ -51,7 +51,7 @@
       </ul>
     </section>
 
-    <section id="skills">
+    <section id="skills" class="sr">
       <h2>Technical Skills</h2>
       <div class="skills-grid">
         <span>Python</span>
@@ -66,7 +66,7 @@
       </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="sr">
       <h2>Contact</h2>
       <ul class="contact-links">
         <li>Email: <a href="mailto:isaactapara@gmail.com">isaactapara@gmail.com</a></li>
@@ -76,15 +76,27 @@
       </ul>
     </section>
 
-    <div class="download-btn">
+    <div class="download-btn sr">
       <a href="assets/isaac_cv.pdf" download class="btn">📄 Download CV (PDF)</a>
     </div>
   </main>
 
-  <footer>
+  <footer class="sr">
     <div class="container text-center">
       <p>&copy; 2025 SILISIL ISAAC TAPARA</p>
     </div>
   </footer>
+
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script>
+    ScrollReveal().reveal('.sr', {
+      distance: '50px',
+      duration: 1000,
+      delay: 100,
+      origin: 'bottom',
+      interval: 120,
+      easing: 'ease-out'
+    });
+  </script>
 </body>
 </html>
