@@ -56,15 +56,28 @@
     <section id="projects" class="sr">
       <h2>Featured Projects</h2>
 
-      <div class="project-card">
+      <div class="filter-buttons">
+        <button class="filter-btn" data-category="all">All</button>
+        <button class="filter-btn" data-category="python">Python</button>
+        <button class="filter-btn" data-category="cyber">Cyber</button>
+        <button class="filter-btn" data-category="tools">Tools</button>
+      </div>
+
+      <div class="project-card" data-category="python">
         <h3>PyScanX</h3>
         <p>A TCP port scanner with banner grabbing, built in Python for ethical reconnaissance and secure development workflows.</p>
         <a href="https://github.com/isaactapara/PyScanx" target="_blank">View on GitHub</a>
       </div>
 
-      <div class="project-card">
+      <div class="project-card" data-category="cyber">
         <h3>CryptoLockerX</h3>
         <p>A simulated ransomware demo tool for education and safe malware analysis practice. Demonstrates encryption and lockout techniques for training use.</p>
+        <a href="#">Coming Soon</a>
+      </div>
+
+      <div class="project-card" data-category="tools">
+        <h3>Network Monitor</h3>
+        <p>A local Python-based tool to watch traffic, identify spikes, and log suspicious patterns on internal networks.</p>
         <a href="#">Coming Soon</a>
       </div>
     </section>
@@ -109,7 +122,7 @@
   <!-- Scroll-to-top Button -->
   <button id="scrollTopBtn" title="Back to Top">⬆</button>
 
-  <!-- ScrollReveal + Scroll-to-top Script + Menu Toggle -->
+  <!-- Scripts -->
   <script>
     const toggle = document.getElementById('darkModeToggle');
     toggle.addEventListener('click', () => {
@@ -132,11 +145,27 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
-    // Mobile nav toggle
     const menuToggle = document.getElementById('menuToggle');
     const navbar = document.getElementById('navbar');
     menuToggle.addEventListener('click', () => {
       navbar.classList.toggle('show-nav');
+    });
+
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const category = button.getAttribute('data-category');
+        projectCards.forEach(card => {
+          const cardCategory = card.getAttribute('data-category');
+          if (category === 'all' || category === cardCategory) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
     });
   </script>
 </body>
