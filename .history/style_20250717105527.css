@@ -223,19 +223,3 @@ footer {
     font-size: 1.2rem;
   }
 }
-#darkModeToggle {
-  margin-top: 1.2rem;
-  background-color: #3b82f6;
-  color: white;
-  padding: 0.4rem 0.9rem; /* Smaller padding */
-  border: none;
-  border-radius: 5px;
-  font-size: 0.9rem;       /* Slightly smaller text */
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#darkModeToggle:hover {
-  background-color: #1e40af;
-}

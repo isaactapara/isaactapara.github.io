@@ -224,14 +224,14 @@ footer {
   }
 }
 #darkModeToggle {
-  margin-top: 1.2rem;
+  margin-top: 1.5rem;
   background-color: #3b82f6;
   color: white;
-  padding: 0.4rem 0.9rem; /* Smaller padding */
+  padding: 0.6rem 1.2rem;
   border: none;
-  border-radius: 5px;
-  font-size: 0.9rem;       /* Slightly smaller text */
-  font-weight: 500;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }

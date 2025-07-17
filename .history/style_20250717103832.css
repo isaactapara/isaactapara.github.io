@@ -35,7 +35,7 @@ header h1 {
 }
 
 nav {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 nav a {
@@ -49,48 +49,8 @@ nav a:hover {
   text-decoration: underline;
 }
 
-.profile-photo {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1rem;
-  border: 4px solid #3b82f6;
-}
-
-.social-icons {
-  margin-top: 1rem;
-}
-
-.social-icons a {
-  color: #3b82f6;
-  margin: 0 0.5rem;
-  font-size: 1.5rem;
-  transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-  color: #1e40af;
-}
-
-.contact-button {
-  margin-top: 1.5rem;
-}
-
-.contact-button .btn {
-  display: inline-block;
-  background-color: #10b981;
-  color: white;
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-
-.contact-button .btn:hover {
-  background-color: #059669;
+main section {
+  margin-bottom: 3rem;
 }
 
 h2 {
@@ -129,6 +89,49 @@ h2 {
   text-decoration: underline;
 }
 
+footer {
+  background: #f3f4f6;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 4px solid #3b82f6;
+}
+
+.social-icons {
+  margin-top: 1rem;
+}
+
+.social-icons a {
+  color: #3b82f6;
+  margin: 0 0.5rem;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #1e40af;
+}
+
+#darkModeToggle {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #1f2937;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
@@ -142,34 +145,6 @@ h2 {
   border-radius: 20px;
   font-size: 0.9rem;
   font-weight: 500;
-}
-
-.contact-links {
-  list-style: none;
-  padding-left: 0;
-}
-
-.contact-links li {
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-}
-
-.contact-links a {
-  color: #3b82f6;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.contact-links a:hover {
-  text-decoration: underline;
-}
-
-footer {
-  background: #f3f4f6;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-  color: #6b7280;
 }
 
 /* Dark Mode Styles */
@@ -195,11 +170,6 @@ footer {
   background-color: #2563eb;
 }
 
-.dark-mode footer {
-  background-color: #1f2937;
-  color: #9ca3af;
-}
-
 /* Mobile Responsiveness */
 @media (max-width: 600px) {
   header h1 {
@@ -222,20 +192,4 @@ footer {
   .social-icons a {
     font-size: 1.2rem;
   }
-}
-#darkModeToggle {
-  margin-top: 1.2rem;
-  background-color: #3b82f6;
-  color: white;
-  padding: 0.4rem 0.9rem; /* Smaller padding */
-  border: none;
-  border-radius: 5px;
-  font-size: 0.9rem;       /* Slightly smaller text */
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#darkModeToggle:hover {
-  background-color: #1e40af;
 }
