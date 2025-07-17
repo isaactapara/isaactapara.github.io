@@ -38,14 +38,13 @@
         <a href="https://wa.me/254702502376" target="_blank" class="btn">💬 Contact Me</a>
       </div>
 
-     <nav class="sticky-nav">
-  <a href="#projects">Projects</a>
-  <a href="#about">About</a>
-  <a href="#skills">Skills</a>
-  <a href="#contact">Contact</a>
-  <a href="resume.html">Resume</a>
-</nav>
-
+      <nav class="sticky-nav">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a href="resume.html">Resume</a>
+      </nav>
 
       <button id="darkModeToggle">🌙 Toggle Dark Mode</button>
     </div>
@@ -105,6 +104,10 @@
     </div>
   </footer>
 
+  <!-- Scroll-to-top Button -->
+  <button id="scrollTopBtn" title="Back to Top">⬆</button>
+
+  <!-- ScrollReveal + Scroll-to-top Script -->
   <script>
     const toggle = document.getElementById('darkModeToggle');
     toggle.addEventListener('click', () => {
@@ -118,6 +121,14 @@
       origin: 'bottom',
       interval: 100
     });
+
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function () {
+      scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    };
+    scrollBtn.onclick = function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
   </script>
 </body>
 </html>
