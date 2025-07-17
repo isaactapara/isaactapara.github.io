@@ -242,3 +242,37 @@ footer {
 #darkModeToggle:hover {
   background-color: #1e40af;
 }
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #111827; /* match header background */
+  padding: 0.75rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sticky-nav a {
+  color: #3b82f6;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.sticky-nav a:hover {
+  text-decoration: underline;
+}
+.dark-mode .sticky-nav {
+  background-color: #1f2937; /* darker than light mode */
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .sticky-nav a {
+  color: #93c5fd; /* soft blue */
+}
+
+.dark-mode .sticky-nav a:hover {
+  text-decoration: underline;
+}
