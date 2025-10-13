@@ -90,47 +90,55 @@ const ResumePDF: React.FC<ResumePDFProps> = () => {
   const projects = [
     {
       name: 'FAMALCOLLECTIONS',
-      description: 'Comprehensive family management platform with real-time features, secure authentication, and family hierarchy management.',
-      technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'JWT', 'Socket.io'],
+      description: 'Premium fashion e-commerce platform with real-time analytics, multi-user system, and comprehensive product management',
+      technologies: ['React 18', 'TypeScript', 'Supabase', 'Tailwind CSS', 'Vite'],
       url: 'https://github.com/isaactapara/FAMALCOLLECTIONS.git',
       achievements: [
-        'Built complete family management system with real-time updates',
-        'Implemented secure authentication and role-based access control',
-        'Created responsive design for all devices',
-        'Integrated real-time notifications and messaging system'
+        'Built complete e-commerce platform with product management and image galleries',
+        'Implemented real-time analytics for sales tracking and inventory monitoring',
+        'Created multi-user system with role-based access control (admin/worker/customer)',
+        'Integrated secure authentication with Supabase Auth',
+        'Developed comprehensive data export capabilities in multiple formats',
+        'Designed mobile-first responsive UI with modern UX/UX principles'
       ],
-      impact: 'Serving 500+ families with secure family data management'
+      impact: 'Complete e-commerce solution with advanced features'
     },
     {
       name: 'ENKANASA-COW',
-      description: 'Innovative cattle management system designed for modern farmers with analytics dashboard and PWA capabilities.',
-      technologies: ['React', 'TypeScript', 'Python', 'Django', 'PostgreSQL', 'Chart.js', 'PWA'],
+      description: 'Premium Kenyan dairy brand platform showcasing Maasai-inspired products with modern UI/UX design',
+      technologies: ['React 18+', 'TypeScript', 'Vite', 'shadcn/ui', 'Tailwind CSS'],
       url: 'https://github.com/isaactapara/ENKANASA-COW.git',
       achievements: [
-        'Developed comprehensive cattle tracking and management system',
-        'Created data visualization dashboards for farm analytics',
-        'Implemented offline-first PWA for rural connectivity',
-        'Built predictive analytics for breeding and health management'
+        'Built premium dairy company platform with product showcase',
+        'Created responsive design optimized for all devices',
+        'Implemented modern UI with shadcn/ui component library',
+        'Developed mobile-first approach for optimal user experience',
+        'Integrated smooth navigation with React Router',
+        'Designed Maasai-inspired branding and product presentation'
       ],
-      impact: 'Helping 200+ farmers optimize livestock management'
+      impact: 'Premium dairy brand showcasing Kenyan culture & products'
     },
     {
       name: 'ESHIPA-AFRICA',
-      description: 'Cultural heritage preservation platform celebrating African heritage with community features and e-commerce.',
-      technologies: ['Next.js', 'TypeScript', 'Strapi', 'PostgreSQL', 'AWS S3', 'Stripe', 'Mapbox'],
+      description: 'Non-profit organization platform empowering African youth, combating GBV, and promoting sustainable development',
+      technologies: ['React 18', 'TypeScript', 'EmailJS', 'shadcn/ui', 'WCAG Compliant'],
       url: 'https://github.com/isaactapara/ESHIPA-AFRICA.git',
       achievements: [
-        'Created comprehensive cultural preservation platform',
-        'Implemented multimedia content management system',
-        'Built community features for cultural exchange',
-        'Integrated e-commerce for traditional crafts and artifacts'
+        'Built comprehensive non-profit organization platform',
+        'Implemented children & youths empowerment program features',
+        'Created GBV prevention and support initiative tools',
+        'Developed environmental sustainability program sections',
+        'Integrated peace resilience and economic empowerment features',
+        'Implemented community engagement and partnership management tools',
+        'Created responsive design with WCAG compliant accessibility',
+        'Integrated EmailJS for contact form submissions and volunteer forms'
       ],
-      impact: 'Preserving and sharing African cultural heritage globally'
+      impact: 'Social impact platform for African community development'
     },
     {
       name: 'PyScanX',
       description: 'Professional network reconnaissance tool for ethical security testing with banner grabbing capabilities.',
-      technologies: ['Python', 'Socket Programming', 'Threading', 'CLI', 'JSON', 'CSV'],
+      technologies: ['Python', 'Socket Programming', 'CLI', 'Multi-threading'],
       url: 'https://github.com/isaactapara/PyScanx',
       achievements: [
         'Built efficient multi-threaded port scanner',
@@ -138,34 +146,34 @@ const ResumePDF: React.FC<ResumePDFProps> = () => {
         'Created comprehensive reporting system',
         'Added stealth scanning capabilities'
       ],
-      impact: 'Used by 100+ cybersecurity professionals for ethical testing'
+      impact: 'Cybersecurity tool for ethical penetration testing'
     }
   ];
 
   const achievements = [
     {
       title: 'Rapid Skill Development',
-      description: 'Self-taught full-stack development and cybersecurity in under 12 months, building production applications from day one.',
+      description: 'Mastered 15+ technologies in 12 months while studying Software Engineering at Zetech University',
       period: '2024',
-      impact: 'Mastered 15+ technologies and built 4 production applications'
+      impact: 'Built 4 production apps while pursuing degree'
     },
     {
       title: 'Open Source Contributor',
-      description: 'Active contributor to various open-source projects, focusing on security tools and web development frameworks.',
+      description: 'Active GitHub contributor with 1000+ stars across multiple repositories',
       period: '2024',
-      impact: 'Contributed to 10+ open-source projects with 1000+ GitHub stars'
+      impact: 'Contributing to security tools & web frameworks'
     },
     {
       title: 'Cybersecurity Advocate',
-      description: 'Promoting cybersecurity awareness and ethical hacking practices in the developer community through projects and documentation.',
+      description: 'Promoting security awareness in developer community through ethical hacking practices',
       period: '2024',
-      impact: 'Created security-focused applications and tools for the community'
+      impact: 'Security-focused development practices'
     },
     {
       title: 'Tech Community Engagement',
-      description: 'Active participation in online tech communities, sharing knowledge and learning from experienced developers.',
+      description: 'Active in tech communities & knowledge sharing with global developer network',
       period: '2024',
-      impact: 'Engaged with 100+ developers and contributed to community discussions'
+      impact: 'Engaged with 100+ developers globally'
     }
   ];
 
