@@ -117,7 +117,9 @@ export const generateResumePDFAdvanced = async () => {
     
     pdf.setFontSize(10);
     pdf.setFont('helvetica', 'normal');
-    pdf.text('Zetech University, Kenya | Expected 2027', margin, yPos);
+    pdf.text('Expected 2027', margin, yPos);
+    yPos += 3;
+    pdf.text('Zetech University, Kenya', margin, yPos);
     yPos += 5;
     
     const eduDesc = 'Comprehensive education in software development, system design, and computer science fundamentals.';
@@ -138,7 +140,9 @@ export const generateResumePDFAdvanced = async () => {
     
     pdf.setFontSize(10);
     pdf.setFont('helvetica', 'normal');
-    pdf.text('Cisco Networking Academy | 2025', margin, yPos);
+    pdf.text('2025', margin, yPos);
+    yPos += 3;
+    pdf.text('Cisco Networking Academy', margin, yPos);
     yPos += 5;
     
     const certDesc = 'Comprehensive certification covering penetration testing, vulnerability assessment, and ethical hacking methodologies.';
@@ -160,7 +164,9 @@ export const generateResumePDFAdvanced = async () => {
     
     pdf.setFontSize(10);
     pdf.setFont('helvetica', 'normal');
-    pdf.text('Zetech University Student | September 2024 - Present', margin, yPos);
+    pdf.text('Zetech University Student', margin, yPos);
+    yPos += 3;
+    pdf.text('September 2024 - Present', margin, yPos);
     yPos += 5;
     
     const exp1Desc = 'Software Engineering student at Zetech University specializing in full-stack development and cybersecurity. Built multiple production applications while pursuing formal education, focusing on security-first development practices and modern web technologies.';
@@ -214,10 +220,14 @@ export const generateResumePDFAdvanced = async () => {
     pdf.setFont('helvetica', 'normal');
     Object.entries(skills).forEach(([category, skillList]) => {
       pdf.setFont('helvetica', 'bold');
-      pdf.text(`${category}:`, margin, yPos);
+      pdf.text(category, margin, yPos);
+      yPos += 3;
       pdf.setFont('helvetica', 'normal');
-      pdf.text(skillList.join(', '), margin + 20, yPos);
-      yPos += 5;
+      skillList.forEach(skill => {
+        pdf.text(`• ${skill}`, margin + 5, yPos);
+        yPos += 4;
+      });
+      yPos += 2;
     });
     yPos += 5;
     
@@ -260,10 +270,15 @@ export const generateResumePDFAdvanced = async () => {
       pdf.setFont('helvetica', 'normal');
       const descLines = pdf.splitTextToSize(project.desc, contentWidth);
       pdf.text(descLines, margin, yPos);
-      yPos += descLines.length * 5;
+      yPos += descLines.length * 5 + 3;
       
-      pdf.text(`Technologies: ${project.tech}`, margin, yPos);
-      yPos += 10;
+      // Split technologies and display them as bullet points
+      const techList = project.tech.split(', ');
+      techList.forEach(tech => {
+        pdf.text(`• ${tech}`, margin + 5, yPos);
+        yPos += 4;
+      });
+      yPos += 5;
     });
     
     // Footer
