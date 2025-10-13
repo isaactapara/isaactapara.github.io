@@ -8,145 +8,46 @@ const Resume: React.FC = () => {
 
   const handleDownloadPDF = async () => {
     try {
-      console.log('Starting PDF generation...');
-      // Simple PDF generation using browser's print functionality
-      const printWindow = window.open('', '_blank');
-      if (printWindow) {
-        console.log('Print window opened successfully');
-        printWindow.document.write(`
-          <!DOCTYPE html>
-          <html>
-            <head>
-              <title>Isaac Tapara - Resume</title>
-              <style>
-                body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
-                .header { background: #1e40af; color: white; padding: 20px; text-align: center; }
-                .header h1 { margin: 0; font-size: 24px; }
-                .header p { margin: 5px 0; }
-                .section { margin: 20px 0; }
-                .section h2 { color: #1e40af; border-bottom: 2px solid #1e40af; padding-bottom: 5px; }
-                .contact { display: flex; justify-content: space-between; flex-wrap: wrap; }
-                .achievement { margin: 10px 0; }
-                .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-                .project { margin: 15px 0; padding: 15px; border-left: 4px solid #1e40af; background: #f8fafc; }
-                @media print { body { margin: 0; } }
-              </style>
-            </head>
-            <body>
-              <div class="header">
-                <h1>SILISIL ISAAC TAPARA</h1>
-                <p>Secure Software Engineer & Ethical Hacker</p>
-                <p>isaactapara@gmail.com | +254 702 502 376 | Kenya</p>
-              </div>
-              
-              <div class="section">
-                <h2>Professional Summary</h2>
-                <p>A results-driven Secure Software Engineer and Ethical Hacker with 3+ years of experience in full-stack development and cybersecurity. Proven track record of building 5+ production-ready applications serving 1000+ users while maintaining 100% security compliance. Expert in React, TypeScript, Python, Node.js, and ethical hacking methodologies. Passionate about creating secure, scalable solutions that protect digital assets and promote cybersecurity awareness. Strong background in penetration testing, vulnerability assessment, and secure coding practices. Committed to continuous learning and contributing to the cybersecurity community through open-source projects and mentorship.</p>
-              </div>
-
-              <div class="section">
-                <h2>Education</h2>
-                <h3>Bachelor of Science in Software Engineering</h3>
-                <p><strong>Expected 2027</strong></p>
-                <p>Zetech University, Kenya</p>
-                <p>Comprehensive education in software development, system design, and computer science fundamentals.</p>
-              </div>
-
-              <div class="section">
-                <h2>Certifications</h2>
-                <h3>Professional Certificate in Ethical Hacking</h3>
-                <p><strong>2025</strong></p>
-                <p>Cisco Networking Academy</p>
-                <p>Comprehensive certification covering penetration testing, vulnerability assessment, and ethical hacking methodologies.</p>
-              </div>
-
-              <div class="section">
-                <h2>Professional Experience</h2>
-                <h3>Full-Stack Developer & Cybersecurity Specialist</h3>
-                <p><strong>Zetech University Student</strong></p>
-                <p><strong>September 2024 - Present</strong></p>
-                <p>Software Engineering student at Zetech University specializing in full-stack development and cybersecurity. Built multiple production applications while pursuing formal education, focusing on security-first development practices and modern web technologies.</p>
-                
-                <div class="achievement">• Built 4+ production-ready applications serving 1000+ users across different industries</div>
-                <div class="achievement">• Developed FAMALCOLLECTIONS - premium fashion e-commerce platform with real-time analytics, multi-user system, and comprehensive product management</div>
-                <div class="achievement">• Created ENKANASA-COW - premium Kenyan dairy brand platform showcasing Maasai-inspired products with modern UI/UX design</div>
-                <div class="achievement">• Built ESHIPA-AFRICA - non-profit organization platform empowering African youth, combating GBV, and promoting sustainable development</div>
-                <div class="achievement">• Developed PyScanX - professional network reconnaissance tool for ethical security testing with banner grabbing capabilities</div>
-                <div class="achievement">• Implemented secure authentication, data encryption, and privacy protection across all applications using modern security practices</div>
-                <div class="achievement">• Designed responsive, mobile-first user interfaces with modern UX/UI principles and accessibility standards</div>
-                <div class="achievement">• Integrated third-party APIs, payment systems, and cloud services for enhanced functionality and scalability</div>
-                <div class="achievement">• Deployed applications using modern DevOps practices, containerization, and cloud technologies</div>
-                <div class="achievement">• Balanced academic studies with practical software development projects, applying university coursework to real-world applications</div>
-                <div class="achievement">• Conducted security audits and implemented vulnerability assessments for all projects, maintaining 100% security compliance</div>
-                <div class="achievement">• Optimized application performance, achieving 95%+ uptime and fast loading times across all platforms</div>
-              </div>
-
-              <div class="section">
-                <h2>Technical Skills</h2>
-                <div class="skills">
-                  <div>
-                    <h3>Frontend</h3>
-                    <p>React, TypeScript, Next.js, Tailwind CSS, HTML5, CSS3</p>
-                  </div>
-                  <div>
-                    <h3>Backend</h3>
-                    <p>Node.js, Python, Express.js, Django, REST APIs</p>
-                  </div>
-                  <div>
-                    <h3>Database</h3>
-                    <p>MongoDB, PostgreSQL, MySQL, Redis</p>
-                  </div>
-                  <div>
-                    <h3>Cybersecurity</h3>
-                    <p>Ethical Hacking, Penetration Testing, Kali Linux, Wireshark, Nmap</p>
-                  </div>
-                  <div>
-                    <h3>Tools</h3>
-                    <p>Git, Docker, AWS, VS Code, Figma</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="section">
-                <h2>Featured Projects</h2>
-                
-                <div class="project">
-                  <h3>FAMALCOLLECTIONS</h3>
-                  <p>Comprehensive family management platform with real-time features</p>
-                  <p><strong>Technologies:</strong> React, TypeScript, Node.js, MongoDB</p>
-                </div>
-
-                <div class="project">
-                  <h3>ENKANASA-COW</h3>
-                  <p>Innovative cattle management system with analytics dashboard</p>
-                  <p><strong>Technologies:</strong> React, Python, Django, PostgreSQL</p>
-                </div>
-
-                <div class="project">
-                  <h3>ESHIPA-AFRICA</h3>
-                  <p>Cultural heritage preservation platform with community features</p>
-                  <p><strong>Technologies:</strong> Next.js, Strapi, AWS, Mapbox</p>
-                </div>
-
-                <div class="project">
-                  <h3>PyScanX</h3>
-                  <p>Professional network reconnaissance tool for ethical security testing</p>
-                  <p><strong>Technologies:</strong> Python, Socket Programming, CLI</p>
-                </div>
-              </div>
-
-              <div class="section">
-                <p><em>This resume was generated from my portfolio at isaactapara.github.io</em></p>
-                <p><em>Last updated: October 13, 2025</em></p>
-              </div>
-            </body>
-          </html>
-        `);
-        printWindow.document.close();
-        console.log('About to print PDF...');
-        printWindow.print();
-        console.log('PDF print initiated successfully');
-      }
+      // Open the preview modal first
+      setShowPDFPreview(true);
+      
+      // Wait for modal to render, then capture its content
+      setTimeout(() => {
+        const modalContent = document.querySelector('.resume-modal-content');
+        if (modalContent) {
+          const printWindow = window.open('', '_blank');
+          if (printWindow) {
+            printWindow.document.write(`
+              <!DOCTYPE html>
+              <html>
+                <head>
+                  <title>Isaac Tapara - Resume</title>
+                  <style>
+                    body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+                    .header { background: #1e40af; color: white; padding: 20px; text-align: center; }
+                    .header h1 { margin: 0; font-size: 24px; }
+                    .header p { margin: 5px 0; }
+                    .section { margin: 20px 0; }
+                    .section h2 { color: #1e40af; border-bottom: 2px solid #1e40af; padding-bottom: 5px; }
+                    .contact { display: flex; justify-content: space-between; flex-wrap: wrap; }
+                    .achievement { margin: 10px 0; }
+                    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+                    .project { margin: 15px 0; padding: 15px; border-left: 4px solid #1e40af; background: #f8fafc; }
+                    @media print { body { margin: 0; } }
+                  </style>
+                </head>
+                <body>
+                  ${modalContent.innerHTML}
+                </body>
+              </html>
+            `);
+            printWindow.document.close();
+            printWindow.print();
+          }
+        }
+        // Close the modal
+        setShowPDFPreview(false);
+      }, 500);
     } catch (error) {
       console.error('Error generating PDF:', error);
       alert('Error generating PDF. Please try again.');
@@ -322,7 +223,7 @@ const Resume: React.FC = () => {
                   <X size={24} />
                 </button>
               </div>
-              <div className="p-6">
+              <div className="p-6 resume-modal-content">
                 <div className="text-center mb-6">
                   <h1 className="text-2xl font-bold text-gray-900 mb-2">SILISIL ISAAC TAPARA</h1>
                   <p className="text-lg text-blue-600 mb-2">Secure Software Engineer & Ethical Hacker</p>
