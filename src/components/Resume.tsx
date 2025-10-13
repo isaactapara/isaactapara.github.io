@@ -8,9 +8,11 @@ const Resume: React.FC = () => {
 
   const handleDownloadPDF = async () => {
     try {
+      console.log('Starting PDF generation...');
       // Simple PDF generation using browser's print functionality
       const printWindow = window.open('', '_blank');
       if (printWindow) {
+        console.log('Print window opened successfully');
         printWindow.document.write(`
           <!DOCTYPE html>
           <html>
@@ -141,7 +143,9 @@ const Resume: React.FC = () => {
           </html>
         `);
         printWindow.document.close();
+        console.log('About to print PDF...');
         printWindow.print();
+        console.log('PDF print initiated successfully');
       }
     } catch (error) {
       console.error('Error generating PDF:', error);
