@@ -53,45 +53,115 @@ export const generateResumePDFAdvanced = async () => {
     const pageWidth = pdf.internal.pageSize.getWidth();
     const pageHeight = pdf.internal.pageSize.getHeight();
     const margin = 20;
-    const contentWidth = pageWidth - 2 * margin;
+    const contentWidth = pageWidth - (margin * 2);
     
-    // Set font
-    pdf.setFont('helvetica');
+    // EXACT SAME DATA AS ResumePDF COMPONENT
+    const personalInfo = {
+      name: 'SILISIL ISAAC TAPARA',
+      title: 'Secure Software Engineer & Ethical Hacker',
+      email: 'isaactapara@gmail.com',
+      phone: '+254 702 502 376',
+      location: 'Kenya',
+      website: 'isaactapara.github.io'
+    };
+
+    const education = [
+      {
+        degree: 'Bachelor of Science in Software Engineering',
+        institution: 'Zetech University, Kenya',
+        period: 'Expected 2027',
+        description: 'Comprehensive education in software development, system design, and computer science fundamentals.'
+      }
+    ];
+
+    const certifications = [
+      {
+        name: 'Professional Certificate in Ethical Hacking',
+        issuer: 'Cisco Networking Academy',
+        period: '2025',
+        description: 'Comprehensive certification covering penetration testing, vulnerability assessment, and ethical hacking methodologies.'
+      }
+    ];
+
+    const experience = [
+      {
+        title: 'Full-Stack Developer & Cybersecurity Specialist',
+        company: 'Zetech University Student',
+        period: 'September 2024 - Present',
+        description: 'Software Engineering student at Zetech University specializing in full-stack development and cybersecurity. Built multiple production applications while pursuing formal education, focusing on security-first development practices and modern web technologies.',
+        achievements: [
+          'Built 4+ production-ready applications serving 1000+ users across different industries',
+          'Developed FAMALCOLLECTIONS - premium fashion e-commerce platform with real-time analytics, multi-user system, and comprehensive product management',
+          'Created ENKANASA-COW - premium Kenyan dairy brand platform showcasing Maasai-inspired products with modern UI/UX design',
+          'Built ESHIPA-AFRICA - non-profit organization platform empowering African youth, combating GBV, and promoting sustainable development',
+          'Developed PyScanX - professional network reconnaissance tool for ethical security testing with banner grabbing capabilities',
+          'Implemented secure authentication, data encryption, and privacy protection across all applications using modern security practices',
+          'Designed responsive, mobile-first user interfaces with modern UX/UI principles and accessibility standards',
+          'Integrated third-party APIs, payment systems, and cloud services for enhanced functionality and scalability',
+          'Deployed applications using modern DevOps practices, containerization, and cloud technologies',
+          'Balanced academic studies with practical software development projects, applying university coursework to real-world applications',
+          'Conducted security audits and implemented vulnerability assessments for all projects, maintaining 100% security compliance',
+          'Optimized application performance, achieving 95%+ uptime and fast loading times across all platforms'
+        ]
+      }
+    ];
+
+    const skills = {
+      'Frontend': ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'HTML5', 'CSS3'],
+      'Backend': ['Node.js', 'Python', 'Express.js', 'Django', 'REST APIs'],
+      'Database': ['MongoDB', 'PostgreSQL', 'MySQL', 'Redis'],
+      'Cybersecurity': ['Ethical Hacking', 'Penetration Testing', 'Kali Linux', 'Wireshark', 'Nmap'],
+      'Tools': ['Git', 'Docker', 'AWS', 'VS Code', 'Figma']
+    };
+
+    const projects = [
+      {
+        name: 'FAMALCOLLECTIONS',
+        description: 'Comprehensive family management platform with real-time features',
+        technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB'],
+        url: 'https://github.com/isaactapara/FAMALCOLLECTIONS.git'
+      },
+      {
+        name: 'ENKANASA-COW',
+        description: 'Innovative cattle management system with analytics dashboard',
+        technologies: ['React', 'Python', 'Django', 'PostgreSQL'],
+        url: 'https://github.com/isaactapara/ENKANASA-COW.git'
+      },
+      {
+        name: 'ESHIPA-AFRICA',
+        description: 'Cultural heritage preservation platform with community features',
+        technologies: ['Next.js', 'Strapi', 'AWS', 'Mapbox'],
+        url: 'https://github.com/isaactapara/ESHIPA-AFRICA.git'
+      },
+      {
+        name: 'PyScanX',
+        description: 'Professional network reconnaissance tool for ethical security testing',
+        technologies: ['Python', 'Socket Programming', 'CLI'],
+        url: 'https://github.com/isaactapara/PyScanx'
+      }
+    ];
     
-    // Header with clean background
-    pdf.setFillColor(59, 130, 246); // Blue color
-    pdf.rect(0, 0, pageWidth, 40, 'F');
+    // Header
+    pdf.setFillColor(37, 99, 235); // Blue-600
+    pdf.rect(0, 0, pageWidth, 50, 'F');
     
-    // Name
     pdf.setTextColor(255, 255, 255);
     pdf.setFontSize(24);
     pdf.setFont('helvetica', 'bold');
-    pdf.text('SILISIL ISAAC TAPARA', margin, 25);
+    pdf.text(personalInfo.name, margin, 20);
     
-    // Title
-    pdf.setFontSize(14);
+    pdf.setFontSize(16);
     pdf.setFont('helvetica', 'normal');
-    pdf.text('Secure Software Engineer & Ethical Hacker', margin, 35);
+    pdf.text(personalInfo.title, margin, 28);
     
-    // Contact Info
-    pdf.setTextColor(0, 0, 0);
     pdf.setFontSize(10);
-    let yPos = 50;
+    pdf.text(`${personalInfo.email} | ${personalInfo.phone} | ${personalInfo.location}`, margin, 35);
+    pdf.text(personalInfo.website, margin, 40);
     
-    const contactInfo = [
-      'Email: isaactapara@gmail.com',
-      'Phone: +254 702 502 376',
-      'Location: Kenya',
-      'Website: isaactapara.github.io'
-    ];
-    
-    contactInfo.forEach((info, index) => {
-      pdf.text(info, margin + (index % 2) * (contentWidth / 2), yPos + Math.floor(index / 2) * 5);
-    });
-    
-    yPos += 20;
+    let yPos = 60;
     
     // Professional Summary
+    pdf.setTextColor(0, 0, 0);
     pdf.setFontSize(16);
     pdf.setFont('helvetica', 'bold');
     pdf.text('PROFESSIONAL SUMMARY', margin, yPos);
@@ -110,22 +180,23 @@ export const generateResumePDFAdvanced = async () => {
     pdf.text('EDUCATION', margin, yPos);
     yPos += 10;
     
-    pdf.setFontSize(12);
-    pdf.setFont('helvetica', 'bold');
-    pdf.text('Bachelor of Science in Software Engineering', margin, yPos);
-    yPos += 5;
-    
-    pdf.setFontSize(10);
-    pdf.setFont('helvetica', 'normal');
-    pdf.text('Expected 2027', margin, yPos);
-    yPos += 3;
-    pdf.text('Zetech University, Kenya', margin, yPos);
-    yPos += 5;
-    
-    const eduDesc = 'Comprehensive education in software development, system design, and computer science fundamentals.';
-    const eduLines = pdf.splitTextToSize(eduDesc, contentWidth);
-    pdf.text(eduLines, margin, yPos);
-    yPos += eduLines.length * 5 + 10;
+    education.forEach(edu => {
+      pdf.setFontSize(12);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text(edu.degree, margin, yPos);
+      yPos += 5;
+      
+      pdf.setFontSize(10);
+      pdf.setFont('helvetica', 'normal');
+      pdf.text(edu.period, margin, yPos);
+      yPos += 3;
+      pdf.text(edu.institution, margin, yPos);
+      yPos += 5;
+      
+      const eduLines = pdf.splitTextToSize(edu.description, contentWidth);
+      pdf.text(eduLines, margin, yPos);
+      yPos += eduLines.length * 5 + 10;
+    });
     
     // Certifications
     pdf.setFontSize(16);
@@ -133,22 +204,23 @@ export const generateResumePDFAdvanced = async () => {
     pdf.text('CERTIFICATIONS', margin, yPos);
     yPos += 10;
     
-    pdf.setFontSize(12);
-    pdf.setFont('helvetica', 'bold');
-    pdf.text('Professional Certificate in Ethical Hacking', margin, yPos);
-    yPos += 5;
-    
-    pdf.setFontSize(10);
-    pdf.setFont('helvetica', 'normal');
-    pdf.text('2025', margin, yPos);
-    yPos += 3;
-    pdf.text('Cisco Networking Academy', margin, yPos);
-    yPos += 5;
-    
-    const certDesc = 'Comprehensive certification covering penetration testing, vulnerability assessment, and ethical hacking methodologies.';
-    const certLines = pdf.splitTextToSize(certDesc, contentWidth);
-    pdf.text(certLines, margin, yPos);
-    yPos += certLines.length * 5 + 10;
+    certifications.forEach(cert => {
+      pdf.setFontSize(12);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text(cert.name, margin, yPos);
+      yPos += 5;
+      
+      pdf.setFontSize(10);
+      pdf.setFont('helvetica', 'normal');
+      pdf.text(cert.period, margin, yPos);
+      yPos += 3;
+      pdf.text(cert.issuer, margin, yPos);
+      yPos += 5;
+      
+      const certLines = pdf.splitTextToSize(cert.description, contentWidth);
+      pdf.text(certLines, margin, yPos);
+      yPos += certLines.length * 5 + 10;
+    });
     
     // Professional Experience
     pdf.setFontSize(16);
@@ -156,65 +228,36 @@ export const generateResumePDFAdvanced = async () => {
     pdf.text('PROFESSIONAL EXPERIENCE', margin, yPos);
     yPos += 10;
     
-    // Experience 1
-    pdf.setFontSize(12);
-    pdf.setFont('helvetica', 'bold');
-    pdf.text('Full-Stack Developer & Cybersecurity Specialist', margin, yPos);
-    yPos += 5;
-    
-    pdf.setFontSize(10);
-    pdf.setFont('helvetica', 'normal');
-    pdf.text('Zetech University Student', margin, yPos);
-    yPos += 3;
-    pdf.text('September 2024 - Present', margin, yPos);
-    yPos += 5;
-    
-    const exp1Desc = 'Software Engineering student at Zetech University specializing in full-stack development and cybersecurity. Built multiple production applications while pursuing formal education, focusing on security-first development practices and modern web technologies.';
-    const exp1Lines = pdf.splitTextToSize(exp1Desc, contentWidth);
-    pdf.text(exp1Lines, margin, yPos);
-    yPos += exp1Lines.length * 5 + 5;
-    
-    // Key Achievements
-    pdf.setFont('helvetica', 'bold');
-    pdf.text('Key Achievements:', margin, yPos);
-    yPos += 5;
-    
-    const achievements = [
-      '• Built 4+ production-ready applications serving 1000+ users across different industries',
-      '• Developed FAMALCOLLECTIONS - premium fashion e-commerce platform with real-time analytics, multi-user system, and comprehensive product management',
-      '• Created ENKANASA-COW - premium Kenyan dairy brand platform showcasing Maasai-inspired products with modern UI/UX design',
-      '• Built ESHIPA-AFRICA - non-profit organization platform empowering African youth, combating GBV, and promoting sustainable development',
-      '• Developed PyScanX - professional network reconnaissance tool for ethical security testing with banner grabbing capabilities',
-      '• Implemented secure authentication, data encryption, and privacy protection across all applications using modern security practices',
-      '• Designed responsive, mobile-first user interfaces with modern UX/UI principles and accessibility standards',
-      '• Integrated third-party APIs, payment systems, and cloud services for enhanced functionality and scalability',
-      '• Deployed applications using modern DevOps practices, containerization, and cloud technologies',
-      '• Balanced academic studies with practical software development projects, applying university coursework to real-world applications',
-      '• Conducted security audits and implemented vulnerability assessments for all projects, maintaining 100% security compliance',
-      '• Optimized application performance, achieving 95%+ uptime and fast loading times across all platforms'
-    ];
-    
-    pdf.setFont('helvetica', 'normal');
-    achievements.forEach(achievement => {
-      const lines = pdf.splitTextToSize(achievement, contentWidth - 10);
-      pdf.text(lines, margin + 5, yPos);
-      yPos += lines.length * 5;
+    experience.forEach(exp => {
+      pdf.setFontSize(12);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text(exp.title, margin, yPos);
+      yPos += 5;
+      
+      pdf.setFontSize(10);
+      pdf.setFont('helvetica', 'normal');
+      pdf.text(exp.company, margin, yPos);
+      yPos += 3;
+      pdf.text(exp.period, margin, yPos);
+      yPos += 5;
+      
+      const descLines = pdf.splitTextToSize(exp.description, contentWidth);
+      pdf.text(descLines, margin, yPos);
+      yPos += descLines.length * 5 + 5;
+      
+      exp.achievements.forEach(achievement => {
+        pdf.text(`• ${achievement}`, margin + 5, yPos);
+        const lines = pdf.splitTextToSize(achievement, contentWidth - 10);
+        yPos += lines.length * 5 + 2;
+      });
+      yPos += 10;
     });
-    yPos += 10;
     
     // Technical Skills
     pdf.setFontSize(16);
     pdf.setFont('helvetica', 'bold');
     pdf.text('TECHNICAL SKILLS', margin, yPos);
     yPos += 10;
-    
-    const skills = {
-      'Frontend': ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'HTML5', 'CSS3'],
-      'Backend': ['Node.js', 'Python', 'Express.js', 'Django', 'REST APIs'],
-      'Database': ['MongoDB', 'PostgreSQL', 'MySQL', 'Redis'],
-      'Cybersecurity': ['Ethical Hacking', 'Penetration Testing', 'Kali Linux', 'Wireshark', 'Nmap'],
-      'Tools': ['Git', 'Docker', 'AWS', 'VS Code', 'Figma']
-    };
     
     pdf.setFontSize(10);
     pdf.setFont('helvetica', 'normal');
@@ -237,29 +280,6 @@ export const generateResumePDFAdvanced = async () => {
     pdf.text('FEATURED PROJECTS', margin, yPos);
     yPos += 10;
     
-    const projects = [
-      {
-        name: 'FAMALCOLLECTIONS',
-        desc: 'Comprehensive family management platform with real-time features',
-        tech: 'React, TypeScript, Node.js, MongoDB'
-      },
-      {
-        name: 'ENKANASA-COW',
-        desc: 'Innovative cattle management system with analytics dashboard',
-        tech: 'React, Python, Django, PostgreSQL'
-      },
-      {
-        name: 'ESHIPA-AFRICA',
-        desc: 'Cultural heritage preservation platform with community features',
-        tech: 'Next.js, Strapi, AWS, Mapbox'
-      },
-      {
-        name: 'PyScanX',
-        desc: 'Professional network reconnaissance tool for ethical security testing',
-        tech: 'Python, Socket Programming, CLI'
-      }
-    ];
-    
     projects.forEach(project => {
       pdf.setFontSize(12);
       pdf.setFont('helvetica', 'bold');
@@ -268,13 +288,11 @@ export const generateResumePDFAdvanced = async () => {
       
       pdf.setFontSize(10);
       pdf.setFont('helvetica', 'normal');
-      const descLines = pdf.splitTextToSize(project.desc, contentWidth);
+      const descLines = pdf.splitTextToSize(project.description, contentWidth);
       pdf.text(descLines, margin, yPos);
       yPos += descLines.length * 5 + 3;
       
-      // Split technologies and display them as bullet points
-      const techList = project.tech.split(', ');
-      techList.forEach(tech => {
+      project.technologies.forEach(tech => {
         pdf.text(`• ${tech}`, margin + 5, yPos);
         yPos += 4;
       });
@@ -285,13 +303,10 @@ export const generateResumePDFAdvanced = async () => {
     const footerY = pageHeight - 20;
     pdf.setFontSize(8);
     pdf.setTextColor(128, 128, 128);
-    pdf.text('Generated from portfolio at isaactapara.github.io', margin, footerY);
-    pdf.text(`Last updated: ${new Date().toLocaleDateString()}`, margin, footerY + 5);
+    pdf.text(`This resume was generated from my portfolio at ${personalInfo.website}`, margin, footerY);
+    pdf.text('Last updated: October 13, 2025', margin, footerY + 5);
     
-    // Save the PDF
-    pdf.save('Isaac_Tapara_Resume.pdf');
-    
-    return true;
+    pdf.save('Isaac_Resume.pdf');
   } catch (error) {
     console.error('Error generating PDF:', error);
     throw error;
