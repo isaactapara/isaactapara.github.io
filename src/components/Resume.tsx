@@ -1,58 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Download, Eye, X } from 'lucide-react';
+import { Eye, X } from 'lucide-react';
 import { fadeInVariants, scaleInVariants } from '../types/motion';
 
 const Resume: React.FC = () => {
   const [showPDFPreview, setShowPDFPreview] = useState(false);
 
-  const handleDownloadPDF = async () => {
-    try {
-      // Open the preview modal first
-      setShowPDFPreview(true);
-      
-      // Wait for modal to render, then capture its content
-      setTimeout(() => {
-        const modalContent = document.querySelector('.resume-modal-content');
-        if (modalContent) {
-          const printWindow = window.open('', '_blank');
-          if (printWindow) {
-            printWindow.document.write(`
-              <!DOCTYPE html>
-              <html>
-                <head>
-                  <title>Isaac Tapara - Resume</title>
-                  <style>
-                    body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
-                    .header { background: #1e40af; color: white; padding: 20px; text-align: center; }
-                    .header h1 { margin: 0; font-size: 24px; }
-                    .header p { margin: 5px 0; }
-                    .section { margin: 20px 0; }
-                    .section h2 { color: #1e40af; border-bottom: 2px solid #1e40af; padding-bottom: 5px; }
-                    .contact { display: flex; justify-content: space-between; flex-wrap: wrap; }
-                    .achievement { margin: 10px 0; }
-                    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-                    .project { margin: 15px 0; padding: 15px; border-left: 4px solid #1e40af; background: #f8fafc; }
-                    @media print { body { margin: 0; } }
-                  </style>
-                </head>
-                <body>
-                  ${modalContent.innerHTML}
-                </body>
-              </html>
-            `);
-            printWindow.document.close();
-            printWindow.print();
-          }
-        }
-        // Close the modal
-        setShowPDFPreview(false);
-      }, 500);
-    } catch (error) {
-      console.error('Error generating PDF:', error);
-      alert('Error generating PDF. Please try again.');
-    }
-  };
 
   return (
     <section id="resume" className="py-20 bg-gray-900">
@@ -92,13 +45,6 @@ const Resume: React.FC = () => {
               >
                 <Eye size={20} />
                 Preview Resume
-              </button>
-              <button
-                onClick={handleDownloadPDF}
-                className="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"
-              >
-                <Download size={20} />
-                Download PDF
               </button>
             </div>
           </div>
@@ -223,7 +169,7 @@ const Resume: React.FC = () => {
                   <X size={24} />
                 </button>
               </div>
-              <div className="p-6 resume-modal-content">
+              <div className="p-6">
                 <div className="text-center mb-6">
                   <h1 className="text-2xl font-bold text-gray-900 mb-2">SILISIL ISAAC TAPARA</h1>
                   <p className="text-lg text-blue-600 mb-2">Secure Software Engineer & Ethical Hacker</p>
@@ -351,13 +297,6 @@ const Resume: React.FC = () => {
                   className="px-6 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-lg transition-colors"
                 >
                   Close
-                </button>
-                <button
-                  onClick={handleDownloadPDF}
-                  className="flex items-center gap-2 px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"
-                >
-                  <Download size={20} />
-                  Download PDF
                 </button>
               </div>
             </div>

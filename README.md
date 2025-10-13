@@ -213,16 +213,11 @@ isaactapara.github.io/
 - Interactive elements and animations
 - Responsive design
 
-### **PDF Generation**
-- Client-side PDF generation using jsPDF
-- High-quality, ATS-friendly format
-- Complete professional information
-- Downloadable as "Isaac_Tapara_Resume.pdf"
-
-### **Preview System**
-- Modal preview before downloading
-- Real-time PDF generation
+### **Resume Preview**
+- Modal preview system
 - Professional formatting
+- Complete professional information
+- Easy-to-read layout
 - Error handling and loading states
 
 ## 🎨 **Customization**
