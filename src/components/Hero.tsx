@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Download, MessageCircle, ArrowDown, Code, Shield, Globe } from 'lucide-react';
+import { MessageCircle, ArrowDown, Code, Shield, Globe } from 'lucide-react';
 import { containerVariants, itemVariants, fadeInVariants, scaleInVariants } from '../types/motion';
-import { generateResumePDFAdvanced } from '../utils/generatePDF';
 
 const Hero: React.FC = () => {
   const [currentRole, setCurrentRole] = useState(0);
-  const [isDownloadingCV, setIsDownloadingCV] = useState(false);
   const roles = [
     'Secure Software Engineer',
     'Ethical Hacker',
@@ -22,17 +20,6 @@ const Hero: React.FC = () => {
     return () => clearInterval(interval);
   }, [roles.length]);
 
-  const handleDownloadCV = async () => {
-    setIsDownloadingCV(true);
-    try {
-      await generateResumePDFAdvanced();
-    } catch (error) {
-      console.error('Error generating PDF:', error);
-      alert('Error generating PDF. Please try again.');
-    } finally {
-      setIsDownloadingCV(false);
-    }
-  };
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -139,25 +126,6 @@ const Hero: React.FC = () => {
               <span>Let's Connect</span>
             </motion.a>
             
-            <motion.button
-              onClick={handleDownloadCV}
-              disabled={isDownloadingCV}
-              whileHover={{ scale: isDownloadingCV ? 1 : 1.05 }}
-              whileTap={{ scale: isDownloadingCV ? 1 : 0.95 }}
-              className="btn-secondary flex items-center space-x-2"
-            >
-              {isDownloadingCV ? (
-                <>
-                  <div className="w-5 h-5 border-2 border-primary-600/30 border-t-primary-600 rounded-full animate-spin" />
-                  <span>Generating CV...</span>
-                </>
-              ) : (
-                <>
-                  <Download size={20} />
-                  <span>Download Modern CV</span>
-                </>
-              )}
-            </motion.button>
           </motion.div>
 
           {/* Skills Icons */}
