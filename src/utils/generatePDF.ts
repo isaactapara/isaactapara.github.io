@@ -51,16 +51,19 @@ export const generateResumePDFAdvanced = async () => {
   try {
     console.log('PDF generation function called - using html2canvas approach');
     
-    // Find the ResumePDF component content - wait for it to be visible
-    let resumeElement = document.querySelector('.resume-pdf') as HTMLElement;
+    // Find the main Resume component content (the one displayed on the page)
+    let resumeElement = document.querySelector('#resume .bg-white') as HTMLElement;
     if (!resumeElement) {
-      // Wait a bit more for the modal to fully render
-      await new Promise(resolve => setTimeout(resolve, 200));
+      // Try alternative selectors
+      resumeElement = document.querySelector('#resume .rounded-2xl') as HTMLElement;
+    }
+    if (!resumeElement) {
+      // Try the ResumePDF component in the modal
       resumeElement = document.querySelector('.resume-pdf') as HTMLElement;
     }
     
     if (!resumeElement) {
-      throw new Error('Resume preview content not found - make sure the preview modal is open');
+      throw new Error('Resume content not found');
     }
     
     console.log('Found resume element:', resumeElement);
