@@ -99,127 +99,10 @@ export const generateResumePDFAdvanced = async () => {
     
     pdf.setFontSize(10);
     pdf.setFont('helvetica', 'normal');
-    const summary = 'A results-driven Secure Software Engineer and Ethical Hacker with 3+ years of experience in full-stack development and cybersecurity. Proven track record of building 5+ production-ready applications serving 1000+ users while maintaining 100% security compliance. Expert in React, TypeScript, Python, Node.js, and ethical hacking methodologies.';
+    const summary = 'A results-driven Secure Software Engineer and Ethical Hacker with 3+ years of experience in full-stack development and cybersecurity. Proven track record of building 5+ production-ready applications serving 1000+ users while maintaining 100% security compliance. Expert in React, TypeScript, Python, Node.js, and ethical hacking methodologies. Passionate about creating secure, scalable solutions that protect digital assets and promote cybersecurity awareness. Strong background in penetration testing, vulnerability assessment, and secure coding practices. Committed to continuous learning and contributing to the cybersecurity community through open-source projects and mentorship.';
     const summaryLines = pdf.splitTextToSize(summary, contentWidth);
     pdf.text(summaryLines, margin, yPos);
     yPos += summaryLines.length * 5 + 10;
-    
-    // Technical Skills
-    pdf.setFontSize(16);
-    pdf.setFont('helvetica', 'bold');
-    pdf.text('TECHNICAL SKILLS', margin, yPos);
-    yPos += 10;
-    
-    const skills = [
-      'Frontend: React, TypeScript, Next.js, HTML5, CSS3, Tailwind CSS, Vue.js',
-      'Backend: Node.js, Python, Express.js, Django, FastAPI, REST APIs, GraphQL',
-      'Database: MongoDB, PostgreSQL, MySQL, Redis, Firebase',
-      'Cybersecurity: Ethical Hacking, Penetration Testing, Kali Linux, Wireshark, Nmap, Metasploit',
-      'DevOps: Git, Docker, AWS, GitHub Actions, Linux, Nginx, CI/CD'
-    ];
-    
-    pdf.setFontSize(10);
-    pdf.setFont('helvetica', 'normal');
-    skills.forEach(skill => {
-      pdf.text(skill, margin, yPos);
-      yPos += 5;
-    });
-    yPos += 5;
-    
-    // Professional Experience
-    pdf.setFontSize(16);
-    pdf.setFont('helvetica', 'bold');
-    pdf.text('PROFESSIONAL EXPERIENCE', margin, yPos);
-    yPos += 10;
-    
-    // Experience 1
-    pdf.setFontSize(12);
-    pdf.setFont('helvetica', 'bold');
-    pdf.text('Full-Stack Developer & Cybersecurity Specialist', margin, yPos);
-    yPos += 5;
-    
-    pdf.setFontSize(10);
-    pdf.setFont('helvetica', 'normal');
-    pdf.text('Freelance / Independent Contractor | 2023 - Present', margin, yPos);
-    yPos += 5;
-    
-    const exp1Desc = 'Developing secure web applications and conducting ethical security assessments for clients across various industries.';
-    const exp1Lines = pdf.splitTextToSize(exp1Desc, contentWidth);
-    pdf.text(exp1Lines, margin, yPos);
-    yPos += exp1Lines.length * 5 + 5;
-    
-    // Key Achievements
-    pdf.setFont('helvetica', 'bold');
-    pdf.text('Key Achievements:', margin, yPos);
-    yPos += 5;
-    
-    const achievements = [
-      '• Built 5+ production-ready applications with security-first approach, serving 1000+ users',
-      '• Conducted penetration testing for multiple organizations, identifying 50+ vulnerabilities',
-      '• Implemented secure coding practices across all projects, achieving 100% security compliance',
-      '• Developed custom cybersecurity tools including PyScanX for network reconnaissance',
-      '• Provided security consulting to startups and established companies',
-      '• Mentored junior developers in secure development practices'
-    ];
-    
-    pdf.setFont('helvetica', 'normal');
-    achievements.forEach(achievement => {
-      const lines = pdf.splitTextToSize(achievement, contentWidth - 10);
-      pdf.text(lines, margin + 5, yPos);
-      yPos += lines.length * 5;
-    });
-    yPos += 10;
-    
-    // Featured Projects
-    pdf.setFontSize(16);
-    pdf.setFont('helvetica', 'bold');
-    pdf.text('FEATURED PROJECTS', margin, yPos);
-    yPos += 10;
-    
-    const projects = [
-      {
-        name: 'FAMALCOLLECTIONS',
-        desc: 'Comprehensive family management platform with real-time features and secure authentication.',
-        tech: 'React, TypeScript, Node.js, MongoDB',
-        impact: 'Serving 500+ families with secure data management'
-      },
-      {
-        name: 'ENKANASA-COW',
-        desc: 'Innovative cattle management system with analytics dashboard and PWA capabilities.',
-        tech: 'React, Python, Django, PostgreSQL',
-        impact: 'Helping 200+ farmers optimize livestock management'
-      },
-      {
-        name: 'ESHIPA-AFRICA',
-        desc: 'Cultural heritage preservation platform with community features and e-commerce.',
-        tech: 'Next.js, Strapi, AWS, Mapbox',
-        impact: 'Preserving African cultural heritage globally'
-      },
-      {
-        name: 'PyScanX',
-        desc: 'Professional network reconnaissance tool for ethical security testing.',
-        tech: 'Python, Socket Programming, CLI',
-        impact: 'Used by 100+ cybersecurity professionals'
-      }
-    ];
-    
-    projects.forEach(project => {
-      pdf.setFontSize(12);
-      pdf.setFont('helvetica', 'bold');
-      pdf.text(project.name, margin, yPos);
-      yPos += 5;
-      
-      pdf.setFontSize(10);
-      pdf.setFont('helvetica', 'normal');
-      const descLines = pdf.splitTextToSize(project.desc, contentWidth);
-      pdf.text(descLines, margin, yPos);
-      yPos += descLines.length * 5;
-      
-      pdf.text(`Technologies: ${project.tech}`, margin, yPos);
-      yPos += 3;
-      pdf.text(`Impact: ${project.impact}`, margin, yPos);
-      yPos += 10;
-    });
     
     // Education
     pdf.setFontSize(16);
@@ -237,7 +120,7 @@ export const generateResumePDFAdvanced = async () => {
     pdf.text('Zetech University, Kenya | Expected 2027', margin, yPos);
     yPos += 5;
     
-    const eduDesc = 'Comprehensive education in software development, system design, and computer science fundamentals. Focus on secure coding practices and software architecture.';
+    const eduDesc = 'Comprehensive education in software development, system design, and computer science fundamentals.';
     const eduLines = pdf.splitTextToSize(eduDesc, contentWidth);
     pdf.text(eduLines, margin, yPos);
     yPos += eduLines.length * 5 + 10;
@@ -261,6 +144,127 @@ export const generateResumePDFAdvanced = async () => {
     const certDesc = 'Comprehensive certification covering penetration testing, vulnerability assessment, and ethical hacking methodologies.';
     const certLines = pdf.splitTextToSize(certDesc, contentWidth);
     pdf.text(certLines, margin, yPos);
+    yPos += certLines.length * 5 + 10;
+    
+    // Professional Experience
+    pdf.setFontSize(16);
+    pdf.setFont('helvetica', 'bold');
+    pdf.text('PROFESSIONAL EXPERIENCE', margin, yPos);
+    yPos += 10;
+    
+    // Experience 1
+    pdf.setFontSize(12);
+    pdf.setFont('helvetica', 'bold');
+    pdf.text('Full-Stack Developer & Cybersecurity Specialist', margin, yPos);
+    yPos += 5;
+    
+    pdf.setFontSize(10);
+    pdf.setFont('helvetica', 'normal');
+    pdf.text('Zetech University Student | September 2024 - Present', margin, yPos);
+    yPos += 5;
+    
+    const exp1Desc = 'Software Engineering student at Zetech University specializing in full-stack development and cybersecurity. Built multiple production applications while pursuing formal education, focusing on security-first development practices and modern web technologies.';
+    const exp1Lines = pdf.splitTextToSize(exp1Desc, contentWidth);
+    pdf.text(exp1Lines, margin, yPos);
+    yPos += exp1Lines.length * 5 + 5;
+    
+    // Key Achievements
+    pdf.setFont('helvetica', 'bold');
+    pdf.text('Key Achievements:', margin, yPos);
+    yPos += 5;
+    
+    const achievements = [
+      '• Built 4+ production-ready applications serving 1000+ users across different industries',
+      '• Developed FAMALCOLLECTIONS - premium fashion e-commerce platform with real-time analytics, multi-user system, and comprehensive product management',
+      '• Created ENKANASA-COW - premium Kenyan dairy brand platform showcasing Maasai-inspired products with modern UI/UX design',
+      '• Built ESHIPA-AFRICA - non-profit organization platform empowering African youth, combating GBV, and promoting sustainable development',
+      '• Developed PyScanX - professional network reconnaissance tool for ethical security testing with banner grabbing capabilities',
+      '• Implemented secure authentication, data encryption, and privacy protection across all applications using modern security practices',
+      '• Designed responsive, mobile-first user interfaces with modern UX/UI principles and accessibility standards',
+      '• Integrated third-party APIs, payment systems, and cloud services for enhanced functionality and scalability',
+      '• Deployed applications using modern DevOps practices, containerization, and cloud technologies',
+      '• Balanced academic studies with practical software development projects, applying university coursework to real-world applications',
+      '• Conducted security audits and implemented vulnerability assessments for all projects, maintaining 100% security compliance',
+      '• Optimized application performance, achieving 95%+ uptime and fast loading times across all platforms'
+    ];
+    
+    pdf.setFont('helvetica', 'normal');
+    achievements.forEach(achievement => {
+      const lines = pdf.splitTextToSize(achievement, contentWidth - 10);
+      pdf.text(lines, margin + 5, yPos);
+      yPos += lines.length * 5;
+    });
+    yPos += 10;
+    
+    // Technical Skills
+    pdf.setFontSize(16);
+    pdf.setFont('helvetica', 'bold');
+    pdf.text('TECHNICAL SKILLS', margin, yPos);
+    yPos += 10;
+    
+    const skills = {
+      'Frontend': ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'HTML5', 'CSS3'],
+      'Backend': ['Node.js', 'Python', 'Express.js', 'Django', 'REST APIs'],
+      'Database': ['MongoDB', 'PostgreSQL', 'MySQL', 'Redis'],
+      'Cybersecurity': ['Ethical Hacking', 'Penetration Testing', 'Kali Linux', 'Wireshark', 'Nmap'],
+      'Tools': ['Git', 'Docker', 'AWS', 'VS Code', 'Figma']
+    };
+    
+    pdf.setFontSize(10);
+    pdf.setFont('helvetica', 'normal');
+    Object.entries(skills).forEach(([category, skillList]) => {
+      pdf.setFont('helvetica', 'bold');
+      pdf.text(`${category}:`, margin, yPos);
+      pdf.setFont('helvetica', 'normal');
+      pdf.text(skillList.join(', '), margin + 20, yPos);
+      yPos += 5;
+    });
+    yPos += 5;
+    
+    // Featured Projects
+    pdf.setFontSize(16);
+    pdf.setFont('helvetica', 'bold');
+    pdf.text('FEATURED PROJECTS', margin, yPos);
+    yPos += 10;
+    
+    const projects = [
+      {
+        name: 'FAMALCOLLECTIONS',
+        desc: 'Comprehensive family management platform with real-time features',
+        tech: 'React, TypeScript, Node.js, MongoDB'
+      },
+      {
+        name: 'ENKANASA-COW',
+        desc: 'Innovative cattle management system with analytics dashboard',
+        tech: 'React, Python, Django, PostgreSQL'
+      },
+      {
+        name: 'ESHIPA-AFRICA',
+        desc: 'Cultural heritage preservation platform with community features',
+        tech: 'Next.js, Strapi, AWS, Mapbox'
+      },
+      {
+        name: 'PyScanX',
+        desc: 'Professional network reconnaissance tool for ethical security testing',
+        tech: 'Python, Socket Programming, CLI'
+      }
+    ];
+    
+    projects.forEach(project => {
+      pdf.setFontSize(12);
+      pdf.setFont('helvetica', 'bold');
+      pdf.text(project.name, margin, yPos);
+      yPos += 5;
+      
+      pdf.setFontSize(10);
+      pdf.setFont('helvetica', 'normal');
+      const descLines = pdf.splitTextToSize(project.desc, contentWidth);
+      pdf.text(descLines, margin, yPos);
+      yPos += descLines.length * 5;
+      
+      pdf.text(`Technologies: ${project.tech}`, margin, yPos);
+      yPos += 10;
+    });
     
     // Footer
     const footerY = pageHeight - 20;
