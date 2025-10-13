@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, Calendar, ExternalLink, GraduationCap, Code, Shield, Trophy } from 'lucide-react';
 import { getAchievementsByType, getRecentAchievements } from '../data/achievements';
-import { containerVariants, itemVariants } from '../types/motion';
+import { containerVariants, itemVariants, fadeInVariants, scaleInVariants } from '../types/motion';
 
 const Achievements: React.FC = () => {
 
@@ -52,8 +52,11 @@ const Achievements: React.FC = () => {
             </p>
           </motion.div>
 
-          {/* Achievements Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                  {/* Achievements Grid */}
+                  <motion.div 
+                    variants={scaleInVariants}
+                    className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+                  >
             {recentAchievements.map((achievement) => {
               const IconComponent = getTypeIcon(achievement.type);
               return (
@@ -149,10 +152,10 @@ const Achievements: React.FC = () => {
                 </motion.div>
               );
             })}
-          </div>
+          </motion.div>
 
           {/* Achievement Categories */}
-          <motion.div variants={itemVariants} className="mb-16">
+          <motion.div variants={fadeInVariants} className="mb-16">
             <h3 className="text-2xl font-bold text-dark-800 dark:text-dark-200 mb-8 text-center">
               Achievement <span className="gradient-text">Categories</span>
             </h3>

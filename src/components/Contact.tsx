@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MessageCircle, MapPin, Clock, Send, Github, Linkedin, Twitter } from 'lucide-react';
-import { containerVariants, itemVariants } from '../types/motion';
+import { containerVariants, itemVariants, slideInVariants, fadeInVariants } from '../types/motion';
 // import emailjs from '@emailjs/browser'; // Unused for now
 
 const Contact: React.FC = () => {
@@ -139,7 +139,7 @@ const Contact: React.FC = () => {
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Information */}
-            <motion.div variants={itemVariants}>
+            <motion.div variants={slideInVariants}>
               <h3 className="text-2xl font-bold text-dark-800 dark:text-dark-200 mb-8">
                 Let's Start a <span className="gradient-text">Conversation</span>
               </h3>
@@ -148,9 +148,16 @@ const Contact: React.FC = () => {
                 {contactInfo.map((info, index) => (
                   <motion.div
                     key={info.title}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    initial={{ opacity: 0, x: -30, scale: 0.95 }}
+                    whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                    transition={{ 
+                      delay: index * 0.15, 
+                      duration: 0.7,
+                      ease: [0.25, 0.46, 0.45, 0.94],
+                      type: "spring",
+                      stiffness: 100,
+                      damping: 20
+                    }}
                     viewport={{ once: true }}
                     className="flex items-start space-x-4 p-4 rounded-xl bg-gray-50 dark:bg-dark-800 hover:bg-gray-100 dark:hover:bg-dark-700 transition-colors duration-300"
                   >
@@ -204,7 +211,7 @@ const Contact: React.FC = () => {
             </motion.div>
 
             {/* Contact Form */}
-            <motion.div variants={itemVariants}>
+            <motion.div variants={fadeInVariants}>
               <div className="bg-gray-50 dark:bg-dark-800 rounded-2xl p-8">
                 <h3 className="text-2xl font-bold text-dark-800 dark:text-dark-200 mb-6">
                   Send me a <span className="gradient-text">Message</span>

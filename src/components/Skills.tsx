@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { skills, getSkillsByCategory, getTopSkills } from '../data/skills';
-import { containerVariants, itemVariants } from '../types/motion';
+import { containerVariants, itemVariants, scaleInVariants } from '../types/motion';
 import { 
   SiReact, SiTypescript, SiNextdotjs, SiTailwindcss, SiHtml5, SiCss3, SiJavascript, SiVuedotjs,
   SiNodedotjs, SiPython, SiExpress, SiDjango, SiFastapi, SiGraphql,
@@ -86,8 +86,8 @@ const Skills: React.FC = () => {
             </p>
           </motion.div>
 
-          {/* Top Skills */}
-          <motion.div variants={itemVariants} className="mb-16">
+            {/* Top Skills */}
+            <motion.div variants={scaleInVariants} className="mb-16">
             <h3 className="text-2xl font-bold text-dark-800 dark:text-dark-200 mb-8 text-center">
               Core <span className="gradient-text">Expertise</span>
             </h3>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Download, MessageCircle, ArrowDown, Code, Shield, Globe } from 'lucide-react';
-import { containerVariants, itemVariants } from '../types/motion';
+import { containerVariants, itemVariants, fadeInVariants, scaleInVariants } from '../types/motion';
 import { generateResumePDFAdvanced } from '../utils/generatePDF';
 
 const Hero: React.FC = () => {
@@ -71,7 +71,7 @@ const Hero: React.FC = () => {
           className="text-center max-w-4xl mx-auto"
         >
           {/* Profile Image */}
-          <motion.div variants={itemVariants} className="mb-8">
+          <motion.div variants={scaleInVariants} className="mb-8">
             <div className="relative inline-block">
               <motion.img
                 src="/assets/isaac.jpg"
@@ -92,7 +92,7 @@ const Hero: React.FC = () => {
 
           {/* Name */}
           <motion.h1
-            variants={itemVariants}
+            variants={fadeInVariants}
             className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4"
           >
             <span className="gradient-text">SILISIL ISAAC</span>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, Target, Heart, Zap, Shield } from 'lucide-react';
-import { containerVariants, itemVariants } from '../types/motion';
+import { containerVariants, itemVariants, slideInVariants, fadeInVariants } from '../types/motion';
 
 const About: React.FC = () => {
   const values = [
@@ -51,8 +51,8 @@ const About: React.FC = () => {
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Column - Story */}
-            <motion.div variants={itemVariants}>
+                    {/* Left Column - Story */}
+                    <motion.div variants={slideInVariants}>
               <div className="space-y-6">
                 <div className="prose prose-lg dark:prose-invert max-w-none">
                   <p className="text-dark-700 dark:text-dark-300 leading-relaxed">
@@ -96,8 +96,8 @@ const About: React.FC = () => {
               </div>
             </motion.div>
 
-            {/* Right Column - Values */}
-            <motion.div variants={itemVariants}>
+                    {/* Right Column - Values */}
+                    <motion.div variants={fadeInVariants}>
               <div className="space-y-6">
                 <h3 className="text-2xl font-bold text-dark-800 dark:text-dark-200 mb-6">
                   My <span className="gradient-text">Values</span>

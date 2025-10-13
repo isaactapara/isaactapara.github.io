@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Github, Filter, Shield } from 'lucide-react';
 import { projects, getFeaturedProjects, getProjectsByCategory, Project } from '../data/projects';
-import { containerVariants, itemVariants } from '../types/motion';
+import { containerVariants, itemVariants, scaleInVariants } from '../types/motion';
 
 const Projects: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -94,7 +94,7 @@ const Projects: React.FC = () => {
 
           {/* Projects Grid */}
           <motion.div
-            variants={containerVariants}
+            variants={scaleInVariants}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             <AnimatePresence mode="wait">
@@ -102,10 +102,17 @@ const Projects: React.FC = () => {
                 <motion.div
                   key={project.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.9, y: -30 }}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: index * 0.15,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 20
+                  }}
                   className="bg-white dark:bg-dark-700 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group"
                 >
                   {/* Project Image/Icon */}
