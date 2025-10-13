@@ -74,7 +74,7 @@ const Hero: React.FC = () => {
           <motion.div variants={itemVariants} className="mb-8">
             <div className="relative inline-block">
               <motion.img
-                src="/assets/isaac-DUSO3n9g.jpg"
+                src="/assets/isaac.jpg"
                 alt="Isaac Tapara"
                 className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-primary-200 dark:border-primary-800 shadow-2xl shadow-primary-500/25"
                 whileHover={{ scale: 1.05 }}
