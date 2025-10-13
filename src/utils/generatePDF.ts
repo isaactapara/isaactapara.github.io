@@ -49,23 +49,18 @@ export const generateResumePDF = async () => {
 
 export const generateResumePDFAdvanced = async () => {
   try {
-    console.log('PDF generation function called - using html2canvas approach');
+    console.log('Starting PDF generation from ResumePDF component...');
     
     // Find the ResumePDF component in the modal
-    let resumeElement = document.querySelector('.resume-pdf') as HTMLElement;
-    if (!resumeElement) {
-      // Wait a bit more for the modal to fully render
-      await new Promise(resolve => setTimeout(resolve, 100));
-      resumeElement = document.querySelector('.resume-pdf') as HTMLElement;
-    }
+    const resumeElement = document.querySelector('.resume-pdf') as HTMLElement;
     
     if (!resumeElement) {
-      throw new Error('Resume PDF component not found - make sure the preview modal is open');
+      throw new Error('Resume PDF component not found. Please open the preview modal first.');
     }
     
-    console.log('Found ResumePDF element:', resumeElement);
+    console.log('Found ResumePDF element, generating canvas...');
 
-    // Configure html2canvas options for better quality
+    // Configure html2canvas options for high quality
     const canvas = await html2canvas(resumeElement, {
       scale: 2,
       useCORS: true,
@@ -77,6 +72,7 @@ export const generateResumePDFAdvanced = async () => {
       scrollY: 0,
     });
 
+    console.log('Canvas generated, creating PDF...');
     const imgData = canvas.toDataURL('image/png');
     
     // Create PDF
@@ -97,7 +93,8 @@ export const generateResumePDFAdvanced = async () => {
     
     // Save the PDF
     pdf.save('Isaac_Resume.pdf');
-    console.log('PDF saved successfully using preview content');
+    console.log('PDF saved successfully!');
+    
   } catch (error) {
     console.error('Error generating PDF:', error);
     throw error;

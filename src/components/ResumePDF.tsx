@@ -6,7 +6,6 @@ interface ResumePDFProps {
 }
 
 const ResumePDF: React.FC<ResumePDFProps> = () => {
-  // Use the EXACT same data as the main Resume component
   const personalInfo = {
     name: 'SILISIL ISAAC TAPARA',
     title: 'Secure Software Engineer & Ethical Hacker',
