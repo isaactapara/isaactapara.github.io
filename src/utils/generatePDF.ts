@@ -1,4 +1,3 @@
-import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 
 export const generateResumePDF = async () => {
@@ -23,6 +22,7 @@ export const generateResumePDF = async () => {
     const imgData = canvas.toDataURL('image/png');
     
     // Create PDF
+    const { jsPDF } = await import('jspdf');
     const pdf = new jsPDF('p', 'mm', 'a4');
     const pdfWidth = pdf.internal.pageSize.getWidth();
     const pdfHeight = pdf.internal.pageSize.getHeight();
@@ -49,11 +49,17 @@ export const generateResumePDF = async () => {
 
 export const generateResumePDFAdvanced = async () => {
   try {
+    console.log('PDF generation function called');
+    const { jsPDF } = await import('jspdf');
+    console.log('jsPDF imported successfully');
     const pdf = new jsPDF('p', 'mm', 'a4');
+    console.log('jsPDF instance created');
     const pageWidth = pdf.internal.pageSize.getWidth();
     const pageHeight = pdf.internal.pageSize.getHeight();
     const margin = 20;
     const contentWidth = pageWidth - (margin * 2);
+    
+    console.log('Starting PDF content generation...');
     
     // EXACT SAME DATA AS ResumePDF COMPONENT
     const personalInfo = {
@@ -306,7 +312,9 @@ export const generateResumePDFAdvanced = async () => {
     pdf.text(`This resume was generated from my portfolio at ${personalInfo.website}`, margin, footerY);
     pdf.text('Last updated: October 13, 2025', margin, footerY + 5);
     
+    console.log('About to save PDF...');
     pdf.save('Isaac_Resume.pdf');
+    console.log('PDF saved successfully');
   } catch (error) {
     console.error('Error generating PDF:', error);
     throw error;

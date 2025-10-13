@@ -12,7 +12,9 @@ const Resume: React.FC = () => {
   const handleDownloadPDF = async () => {
     setIsGeneratingPDF(true);
     try {
+      console.log('Starting PDF generation...');
       await generateResumePDFAdvanced();
+      console.log('PDF generation completed successfully');
     } catch (error) {
       console.error('Error generating PDF:', error);
       alert('Error generating PDF. Please try again.');
