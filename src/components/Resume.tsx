@@ -13,11 +13,18 @@ const Resume: React.FC = () => {
     setIsGeneratingPDF(true);
     try {
       console.log('Starting PDF generation...');
+      // First show the preview modal to make sure the ResumePDF component is rendered
+      setShowPDFPreview(true);
+      // Wait for the modal to render
+      await new Promise(resolve => setTimeout(resolve, 200));
       await generateResumePDFAdvanced();
       console.log('PDF generation completed successfully');
+      // Close the modal after PDF generation
+      setShowPDFPreview(false);
     } catch (error) {
       console.error('Error generating PDF:', error);
       alert('Error generating PDF. Please try again.');
+      setShowPDFPreview(false);
     } finally {
       setIsGeneratingPDF(false);
     }
