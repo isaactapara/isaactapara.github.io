@@ -1,385 +1,464 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Download, Mail, MapPin, Phone, Award, GraduationCap, Code, Shield, ExternalLink, FileText } from 'lucide-react';
-import { containerVariants, itemVariants } from '../types/motion';
-import { generateResumePDFAdvanced } from '../utils/generatePDF';
-import ResumePDF from './ResumePDF';
+import { Download, Eye, X } from 'lucide-react';
+import { fadeInVariants, scaleInVariants } from '../types/motion';
 
 const Resume: React.FC = () => {
-  const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
   const [showPDFPreview, setShowPDFPreview] = useState(false);
 
   const handleDownloadPDF = async () => {
-    setIsGeneratingPDF(true);
     try {
-      console.log('Starting PDF generation...');
-      await generateResumePDFAdvanced();
-      console.log('PDF generation completed successfully');
+      // Simple PDF generation using browser's print functionality
+      const printWindow = window.open('', '_blank');
+      if (printWindow) {
+        printWindow.document.write(`
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <title>Isaac Tapara - Resume</title>
+              <style>
+                body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+                .header { background: #1e40af; color: white; padding: 20px; text-align: center; }
+                .header h1 { margin: 0; font-size: 24px; }
+                .header p { margin: 5px 0; }
+                .section { margin: 20px 0; }
+                .section h2 { color: #1e40af; border-bottom: 2px solid #1e40af; padding-bottom: 5px; }
+                .contact { display: flex; justify-content: space-between; flex-wrap: wrap; }
+                .achievement { margin: 10px 0; }
+                .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+                .project { margin: 15px 0; padding: 15px; border-left: 4px solid #1e40af; background: #f8fafc; }
+                @media print { body { margin: 0; } }
+              </style>
+            </head>
+            <body>
+              <div class="header">
+                <h1>SILISIL ISAAC TAPARA</h1>
+                <p>Secure Software Engineer & Ethical Hacker</p>
+                <p>isaactapara@gmail.com | +254 702 502 376 | Kenya</p>
+              </div>
+              
+              <div class="section">
+                <h2>Professional Summary</h2>
+                <p>A results-driven Secure Software Engineer and Ethical Hacker with 3+ years of experience in full-stack development and cybersecurity. Proven track record of building 5+ production-ready applications serving 1000+ users while maintaining 100% security compliance. Expert in React, TypeScript, Python, Node.js, and ethical hacking methodologies. Passionate about creating secure, scalable solutions that protect digital assets and promote cybersecurity awareness. Strong background in penetration testing, vulnerability assessment, and secure coding practices. Committed to continuous learning and contributing to the cybersecurity community through open-source projects and mentorship.</p>
+              </div>
+
+              <div class="section">
+                <h2>Education</h2>
+                <h3>Bachelor of Science in Software Engineering</h3>
+                <p><strong>Expected 2027</strong></p>
+                <p>Zetech University, Kenya</p>
+                <p>Comprehensive education in software development, system design, and computer science fundamentals.</p>
+              </div>
+
+              <div class="section">
+                <h2>Certifications</h2>
+                <h3>Professional Certificate in Ethical Hacking</h3>
+                <p><strong>2025</strong></p>
+                <p>Cisco Networking Academy</p>
+                <p>Comprehensive certification covering penetration testing, vulnerability assessment, and ethical hacking methodologies.</p>
+              </div>
+
+              <div class="section">
+                <h2>Professional Experience</h2>
+                <h3>Full-Stack Developer & Cybersecurity Specialist</h3>
+                <p><strong>Zetech University Student</strong></p>
+                <p><strong>September 2024 - Present</strong></p>
+                <p>Software Engineering student at Zetech University specializing in full-stack development and cybersecurity. Built multiple production applications while pursuing formal education, focusing on security-first development practices and modern web technologies.</p>
+                
+                <div class="achievement">• Built 4+ production-ready applications serving 1000+ users across different industries</div>
+                <div class="achievement">• Developed FAMALCOLLECTIONS - premium fashion e-commerce platform with real-time analytics, multi-user system, and comprehensive product management</div>
+                <div class="achievement">• Created ENKANASA-COW - premium Kenyan dairy brand platform showcasing Maasai-inspired products with modern UI/UX design</div>
+                <div class="achievement">• Built ESHIPA-AFRICA - non-profit organization platform empowering African youth, combating GBV, and promoting sustainable development</div>
+                <div class="achievement">• Developed PyScanX - professional network reconnaissance tool for ethical security testing with banner grabbing capabilities</div>
+                <div class="achievement">• Implemented secure authentication, data encryption, and privacy protection across all applications using modern security practices</div>
+                <div class="achievement">• Designed responsive, mobile-first user interfaces with modern UX/UI principles and accessibility standards</div>
+                <div class="achievement">• Integrated third-party APIs, payment systems, and cloud services for enhanced functionality and scalability</div>
+                <div class="achievement">• Deployed applications using modern DevOps practices, containerization, and cloud technologies</div>
+                <div class="achievement">• Balanced academic studies with practical software development projects, applying university coursework to real-world applications</div>
+                <div class="achievement">• Conducted security audits and implemented vulnerability assessments for all projects, maintaining 100% security compliance</div>
+                <div class="achievement">• Optimized application performance, achieving 95%+ uptime and fast loading times across all platforms</div>
+              </div>
+
+              <div class="section">
+                <h2>Technical Skills</h2>
+                <div class="skills">
+                  <div>
+                    <h3>Frontend</h3>
+                    <p>React, TypeScript, Next.js, Tailwind CSS, HTML5, CSS3</p>
+                  </div>
+                  <div>
+                    <h3>Backend</h3>
+                    <p>Node.js, Python, Express.js, Django, REST APIs</p>
+                  </div>
+                  <div>
+                    <h3>Database</h3>
+                    <p>MongoDB, PostgreSQL, MySQL, Redis</p>
+                  </div>
+                  <div>
+                    <h3>Cybersecurity</h3>
+                    <p>Ethical Hacking, Penetration Testing, Kali Linux, Wireshark, Nmap</p>
+                  </div>
+                  <div>
+                    <h3>Tools</h3>
+                    <p>Git, Docker, AWS, VS Code, Figma</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="section">
+                <h2>Featured Projects</h2>
+                
+                <div class="project">
+                  <h3>FAMALCOLLECTIONS</h3>
+                  <p>Comprehensive family management platform with real-time features</p>
+                  <p><strong>Technologies:</strong> React, TypeScript, Node.js, MongoDB</p>
+                </div>
+
+                <div class="project">
+                  <h3>ENKANASA-COW</h3>
+                  <p>Innovative cattle management system with analytics dashboard</p>
+                  <p><strong>Technologies:</strong> React, Python, Django, PostgreSQL</p>
+                </div>
+
+                <div class="project">
+                  <h3>ESHIPA-AFRICA</h3>
+                  <p>Cultural heritage preservation platform with community features</p>
+                  <p><strong>Technologies:</strong> Next.js, Strapi, AWS, Mapbox</p>
+                </div>
+
+                <div class="project">
+                  <h3>PyScanX</h3>
+                  <p>Professional network reconnaissance tool for ethical security testing</p>
+                  <p><strong>Technologies:</strong> Python, Socket Programming, CLI</p>
+                </div>
+              </div>
+
+              <div class="section">
+                <p><em>This resume was generated from my portfolio at isaactapara.github.io</em></p>
+                <p><em>Last updated: October 13, 2025</em></p>
+              </div>
+            </body>
+          </html>
+        `);
+        printWindow.document.close();
+        printWindow.print();
+      }
     } catch (error) {
       console.error('Error generating PDF:', error);
       alert('Error generating PDF. Please try again.');
-    } finally {
-      setIsGeneratingPDF(false);
     }
   };
-
-  const handlePreviewPDF = () => {
-    setShowPDFPreview(true);
-  };
-
-  const personalInfo = {
-    name: 'SILISIL ISAAC TAPARA',
-    title: 'Secure Software Engineer & Ethical Hacker',
-    email: 'isaactapara@gmail.com',
-    phone: '+254 702 502 376',
-    location: 'Kenya',
-    website: 'isaactapara.github.io'
-  };
-
-  const education = [
-    {
-      degree: 'Bachelor of Science in Software Engineering',
-      institution: 'Zetech University, Kenya',
-      period: 'Expected 2027',
-      description: 'Comprehensive education in software development, system design, and computer science fundamentals.'
-    }
-  ];
-
-  const certifications = [
-    {
-      name: 'Professional Certificate in Ethical Hacking',
-      issuer: 'Cisco Networking Academy',
-      period: '2025',
-      description: 'Comprehensive certification covering penetration testing, vulnerability assessment, and ethical hacking methodologies.'
-    }
-  ];
-
-  const experience = [
-    {
-      title: 'Full-Stack Developer & Cybersecurity Specialist',
-      company: 'Zetech University Student',
-      period: 'September 2024 - Present',
-      description: 'Software Engineering student at Zetech University specializing in full-stack development and cybersecurity. Built multiple production applications while pursuing formal education, focusing on security-first development practices and modern web technologies.',
-      achievements: [
-        'Built 4+ production-ready applications serving 1000+ users across different industries',
-        'Developed FAMALCOLLECTIONS - premium fashion e-commerce platform with real-time analytics, multi-user system, and comprehensive product management',
-        'Created ENKANASA-COW - premium Kenyan dairy brand platform showcasing Maasai-inspired products with modern UI/UX design',
-        'Built ESHIPA-AFRICA - non-profit organization platform empowering African youth, combating GBV, and promoting sustainable development',
-        'Developed PyScanX - professional network reconnaissance tool for ethical security testing with banner grabbing capabilities',
-        'Implemented secure authentication, data encryption, and privacy protection across all applications using modern security practices',
-        'Designed responsive, mobile-first user interfaces with modern UX/UI principles and accessibility standards',
-        'Integrated third-party APIs, payment systems, and cloud services for enhanced functionality and scalability',
-        'Deployed applications using modern DevOps practices, containerization, and cloud technologies',
-        'Balanced academic studies with practical software development projects, applying university coursework to real-world applications',
-        'Conducted security audits and implemented vulnerability assessments for all projects, maintaining 100% security compliance',
-        'Optimized application performance, achieving 95%+ uptime and fast loading times across all platforms'
-      ]
-    }
-  ];
-
-  const skills = {
-    'Frontend': ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'HTML5', 'CSS3'],
-    'Backend': ['Node.js', 'Python', 'Express.js', 'Django', 'REST APIs'],
-    'Database': ['MongoDB', 'PostgreSQL', 'MySQL', 'Redis'],
-    'Cybersecurity': ['Ethical Hacking', 'Penetration Testing', 'Kali Linux', 'Wireshark', 'Nmap'],
-    'Tools': ['Git', 'Docker', 'AWS', 'VS Code', 'Figma']
-  };
-
-  const projects = [
-    {
-      name: 'FAMALCOLLECTIONS',
-      description: 'Comprehensive family management platform with real-time features',
-      technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB'],
-      url: 'https://github.com/isaactapara/FAMALCOLLECTIONS.git'
-    },
-    {
-      name: 'ENKANASA-COW',
-      description: 'Innovative cattle management system with analytics dashboard',
-      technologies: ['React', 'Python', 'Django', 'PostgreSQL'],
-      url: 'https://github.com/isaactapara/ENKANASA-COW.git'
-    },
-    {
-      name: 'ESHIPA-AFRICA',
-      description: 'Cultural heritage preservation platform with community features',
-      technologies: ['Next.js', 'Strapi', 'AWS', 'Mapbox'],
-      url: 'https://github.com/isaactapara/ESHIPA-AFRICA.git'
-    },
-    {
-      name: 'PyScanX',
-      description: 'Professional network reconnaissance tool for ethical security testing',
-      technologies: ['Python', 'Socket Programming', 'CLI'],
-      url: 'https://github.com/isaactapara/PyScanx'
-    }
-  ];
 
   return (
-    <section id="resume" className="py-20 bg-gray-50 dark:bg-dark-800">
-      <div className="container mx-auto px-4">
+    <section id="resume" className="py-20 bg-gray-900">
+      <div className="max-w-6xl mx-auto px-4">
         <motion.div
-          variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          className="max-w-4xl mx-auto"
+          viewport={{ once: true }}
+          variants={scaleInVariants}
+          className="text-center mb-16"
         >
-          {/* Header */}
-          <motion.div variants={itemVariants} className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Professional <span className="gradient-text">Resume</span>
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto mb-6" />
-            <p className="text-lg text-dark-600 dark:text-dark-400 max-w-2xl mx-auto">
-              A comprehensive overview of my professional background, skills, and achievements.
-            </p>
-          </motion.div>
+          <h2 className="text-4xl font-bold text-white mb-4">Resume</h2>
+          <p className="text-xl text-gray-300">My professional journey and achievements</p>
+        </motion.div>
 
-          {/* Resume Content */}
-          <div className="bg-white dark:bg-dark-700 rounded-2xl shadow-2xl overflow-hidden">
-            {/* Header Section */}
-            <div className="bg-gradient-to-r from-primary-600 to-accent-600 p-8 text-white">
-              <div className="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
-                <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center">
-                  <span className="text-2xl font-bold">IT</span>
-                </div>
-                <div className="text-center md:text-left">
-                  <h1 className="text-3xl font-bold mb-2">{personalInfo.name}</h1>
-                  <p className="text-xl opacity-90 mb-4">{personalInfo.title}</p>
-                  <div className="flex flex-wrap justify-center md:justify-start gap-4 text-sm">
-                    <div className="flex items-center space-x-2">
-                      <Mail size={16} />
-                      <span>{personalInfo.email}</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Phone size={16} />
-                      <span>{personalInfo.phone}</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <MapPin size={16} />
-                      <span>{personalInfo.location}</span>
-                    </div>
-                  </div>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInVariants}
+          className="bg-gray-800 rounded-lg p-8 mb-8"
+        >
+          <div className="flex flex-col md:flex-row gap-6 items-center justify-between mb-8">
+            <div>
+              <h3 className="text-2xl font-bold text-white mb-2">SILISIL ISAAC TAPARA</h3>
+              <p className="text-lg text-blue-400 mb-2">Secure Software Engineer & Ethical Hacker</p>
+              <div className="text-gray-300 space-y-1">
+                <p>📧 isaactapara@gmail.com</p>
+                <p>📱 +254 702 502 376</p>
+                <p>📍 Kenya</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <button
+                onClick={() => setShowPDFPreview(true)}
+                className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+              >
+                <Eye size={20} />
+                Preview Resume
+              </button>
+              <button
+                onClick={handleDownloadPDF}
+                className="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"
+              >
+                <Download size={20} />
+                Download PDF
+              </button>
+            </div>
+          </div>
+
+          <div className="space-y-8">
+            <div>
+              <h4 className="text-xl font-semibold text-white mb-3">Professional Summary</h4>
+              <p className="text-gray-300 leading-relaxed">
+                A results-driven Secure Software Engineer and Ethical Hacker with 3+ years of experience in full-stack development and cybersecurity. Proven track record of building 5+ production-ready applications serving 1000+ users while maintaining 100% security compliance. Expert in React, TypeScript, Python, Node.js, and ethical hacking methodologies. Passionate about creating secure, scalable solutions that protect digital assets and promote cybersecurity awareness. Strong background in penetration testing, vulnerability assessment, and secure coding practices. Committed to continuous learning and contributing to the cybersecurity community through open-source projects and mentorship.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-xl font-semibold text-white mb-3">Education</h4>
+              <div className="bg-gray-700 p-4 rounded-lg">
+                <h5 className="text-lg font-medium text-white">Bachelor of Science in Software Engineering</h5>
+                <p className="text-blue-400 font-medium">Expected 2027</p>
+                <p className="text-gray-300">Zetech University, Kenya</p>
+                <p className="text-gray-400 text-sm mt-2">Comprehensive education in software development, system design, and computer science fundamentals.</p>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="text-xl font-semibold text-white mb-3">Certifications</h4>
+              <div className="bg-gray-700 p-4 rounded-lg">
+                <h5 className="text-lg font-medium text-white">Professional Certificate in Ethical Hacking</h5>
+                <p className="text-blue-400 font-medium">2025</p>
+                <p className="text-gray-300">Cisco Networking Academy</p>
+                <p className="text-gray-400 text-sm mt-2">Comprehensive certification covering penetration testing, vulnerability assessment, and ethical hacking methodologies.</p>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="text-xl font-semibold text-white mb-3">Professional Experience</h4>
+              <div className="bg-gray-700 p-4 rounded-lg">
+                <h5 className="text-lg font-medium text-white">Full-Stack Developer & Cybersecurity Specialist</h5>
+                <p className="text-blue-400 font-medium">Zetech University Student</p>
+                <p className="text-gray-300">September 2024 - Present</p>
+                <p className="text-gray-400 text-sm mt-2 mb-4">Software Engineering student at Zetech University specializing in full-stack development and cybersecurity. Built multiple production applications while pursuing formal education, focusing on security-first development practices and modern web technologies.</p>
+                
+                <div className="space-y-2">
+                  <div className="text-gray-300">• Built 4+ production-ready applications serving 1000+ users across different industries</div>
+                  <div className="text-gray-300">• Developed FAMALCOLLECTIONS - premium fashion e-commerce platform with real-time analytics, multi-user system, and comprehensive product management</div>
+                  <div className="text-gray-300">• Created ENKANASA-COW - premium Kenyan dairy brand platform showcasing Maasai-inspired products with modern UI/UX design</div>
+                  <div className="text-gray-300">• Built ESHIPA-AFRICA - non-profit organization platform empowering African youth, combating GBV, and promoting sustainable development</div>
+                  <div className="text-gray-300">• Developed PyScanX - professional network reconnaissance tool for ethical security testing with banner grabbing capabilities</div>
+                  <div className="text-gray-300">• Implemented secure authentication, data encryption, and privacy protection across all applications using modern security practices</div>
+                  <div className="text-gray-300">• Designed responsive, mobile-first user interfaces with modern UX/UI principles and accessibility standards</div>
+                  <div className="text-gray-300">• Integrated third-party APIs, payment systems, and cloud services for enhanced functionality and scalability</div>
+                  <div className="text-gray-300">• Deployed applications using modern DevOps practices, containerization, and cloud technologies</div>
+                  <div className="text-gray-300">• Balanced academic studies with practical software development projects, applying university coursework to real-world applications</div>
+                  <div className="text-gray-300">• Conducted security audits and implemented vulnerability assessments for all projects, maintaining 100% security compliance</div>
+                  <div className="text-gray-300">• Optimized application performance, achieving 95%+ uptime and fast loading times across all platforms</div>
                 </div>
               </div>
             </div>
 
-            <div className="p-8">
-              {/* Professional Summary */}
-              <motion.div variants={itemVariants} className="mb-8">
-                <h3 className="text-2xl font-bold text-dark-800 dark:text-dark-200 mb-4 flex items-center">
-                  <Shield className="mr-2 text-primary-500" size={24} />
-                  Professional Summary
-                </h3>
-                <p className="text-dark-600 dark:text-dark-400 leading-relaxed">
-                  A results-driven Secure Software Engineer and Ethical Hacker with 3+ years of experience in full-stack development and cybersecurity. 
-                  Proven track record of building 5+ production-ready applications serving 1000+ users while maintaining 100% security compliance. 
-                  Expert in React, TypeScript, Python, Node.js, and ethical hacking methodologies. Passionate about creating secure, scalable solutions 
-                  that protect digital assets and promote cybersecurity awareness. Strong background in penetration testing, vulnerability assessment, 
-                  and secure coding practices. Committed to continuous learning and contributing to the cybersecurity community through open-source projects 
-                  and mentorship.
-                </p>
-              </motion.div>
-
-              {/* Education */}
-              <motion.div variants={itemVariants} className="mb-8">
-                <h3 className="text-2xl font-bold text-dark-800 dark:text-dark-200 mb-4 flex items-center">
-                  <GraduationCap className="mr-2 text-primary-500" size={24} />
-                  Education
-                </h3>
-                {education.map((edu, index) => (
-                  <div key={index} className="mb-4 p-4 bg-primary-50 dark:bg-primary-900/20 rounded-lg">
-                    <div className="flex justify-between items-start mb-2">
-                      <h4 className="font-semibold text-dark-800 dark:text-dark-200">{edu.degree}</h4>
-                      <span className="text-sm text-primary-600 dark:text-primary-400 font-medium">{edu.period}</span>
-                    </div>
-                    <p className="text-accent-600 dark:text-accent-400 font-medium mb-1">{edu.institution}</p>
-                    <p className="text-dark-600 dark:text-dark-400 text-sm">{edu.description}</p>
-                  </div>
-                ))}
-              </motion.div>
-
-              {/* Certifications */}
-              <motion.div variants={itemVariants} className="mb-8">
-                <h3 className="text-2xl font-bold text-dark-800 dark:text-dark-200 mb-4 flex items-center">
-                  <Award className="mr-2 text-primary-500" size={24} />
-                  Certifications
-                </h3>
-                {certifications.map((cert, index) => (
-                  <div key={index} className="mb-4 p-4 bg-accent-50 dark:bg-accent-900/20 rounded-lg">
-                    <div className="flex justify-between items-start mb-2">
-                      <h4 className="font-semibold text-dark-800 dark:text-dark-200">{cert.name}</h4>
-                      <span className="text-sm text-accent-600 dark:text-accent-400 font-medium">{cert.period}</span>
-                    </div>
-                    <p className="text-primary-600 dark:text-primary-400 font-medium mb-1">{cert.issuer}</p>
-                    <p className="text-dark-600 dark:text-dark-400 text-sm">{cert.description}</p>
-                  </div>
-                ))}
-              </motion.div>
-
-              {/* Experience */}
-              <motion.div variants={itemVariants} className="mb-8">
-                <h3 className="text-2xl font-bold text-dark-800 dark:text-dark-200 mb-4 flex items-center">
-                  <Code className="mr-2 text-primary-500" size={24} />
-                  Professional Experience
-                </h3>
-                {experience.map((exp, index) => (
-                  <div key={index} className="mb-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                    <div className="flex justify-between items-start mb-2">
-                      <div>
-                        <h4 className="font-semibold text-dark-800 dark:text-dark-200">{exp.title}</h4>
-                        <p className="text-primary-600 dark:text-primary-400 font-medium">{exp.company}</p>
-                      </div>
-                      <span className="text-sm text-dark-600 dark:text-dark-400 font-medium">{exp.period}</span>
-                    </div>
-                    <p className="text-dark-600 dark:text-dark-400 mb-3">{exp.description}</p>
-                    <ul className="list-disc list-inside text-sm text-dark-600 dark:text-dark-400 space-y-1">
-                      {exp.achievements.map((achievement, idx) => (
-                        <li key={idx}>{achievement}</li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </motion.div>
-
-              {/* Skills */}
-              <motion.div variants={itemVariants} className="mb-8">
-                <h3 className="text-2xl font-bold text-dark-800 dark:text-dark-200 mb-4">Technical Skills</h3>
-                <div className="grid md:grid-cols-2 gap-6">
-                  {Object.entries(skills).map(([category, skillList]) => (
-                    <div key={category} className="p-4 bg-white dark:bg-dark-600 rounded-lg border border-gray-200 dark:border-gray-700">
-                      <h4 className="font-semibold text-dark-800 dark:text-dark-200 mb-3">{category}</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {skillList.map((skill) => (
-                          <span
-                            key={skill}
-                            className="px-3 py-1 bg-primary-100 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 text-sm rounded-full font-medium"
-                          >
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
+            <div>
+              <h4 className="text-xl font-semibold text-white mb-3">Technical Skills</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="bg-gray-700 p-4 rounded-lg">
+                  <h5 className="text-white font-medium mb-2">Frontend</h5>
+                  <p className="text-gray-300 text-sm">React, TypeScript, Next.js, Tailwind CSS, HTML5, CSS3</p>
                 </div>
-              </motion.div>
-
-              {/* Featured Projects */}
-              <motion.div variants={itemVariants} className="mb-8">
-                <h3 className="text-2xl font-bold text-dark-800 dark:text-dark-200 mb-4">Featured Projects</h3>
-                <div className="grid gap-4">
-                  {projects.map((project, index) => (
-                    <div key={index} className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                      <div className="flex justify-between items-start mb-2">
-                        <h4 className="font-semibold text-dark-800 dark:text-dark-200">{project.name}</h4>
-                        <a
-                          href={project.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300"
-                        >
-                          <ExternalLink size={16} />
-                        </a>
-                      </div>
-                      <p className="text-dark-600 dark:text-dark-400 mb-2">{project.description}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {project.technologies.map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-2 py-1 bg-accent-100 dark:bg-accent-900/20 text-accent-700 dark:text-accent-300 text-xs rounded font-medium"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
+                <div className="bg-gray-700 p-4 rounded-lg">
+                  <h5 className="text-white font-medium mb-2">Backend</h5>
+                  <p className="text-gray-300 text-sm">Node.js, Python, Express.js, Django, REST APIs</p>
                 </div>
-              </motion.div>
+                <div className="bg-gray-700 p-4 rounded-lg">
+                  <h5 className="text-white font-medium mb-2">Database</h5>
+                  <p className="text-gray-300 text-sm">MongoDB, PostgreSQL, MySQL, Redis</p>
+                </div>
+                <div className="bg-gray-700 p-4 rounded-lg">
+                  <h5 className="text-white font-medium mb-2">Cybersecurity</h5>
+                  <p className="text-gray-300 text-sm">Ethical Hacking, Penetration Testing, Kali Linux, Wireshark, Nmap</p>
+                </div>
+                <div className="bg-gray-700 p-4 rounded-lg">
+                  <h5 className="text-white font-medium mb-2">Tools</h5>
+                  <p className="text-gray-300 text-sm">Git, Docker, AWS, VS Code, Figma</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="text-xl font-semibold text-white mb-3">Featured Projects</h4>
+              <div className="space-y-4">
+                <div className="bg-gray-700 p-4 rounded-lg border-l-4 border-blue-500">
+                  <h5 className="text-white font-medium mb-2">FAMALCOLLECTIONS</h5>
+                  <p className="text-gray-300 text-sm mb-2">Comprehensive family management platform with real-time features</p>
+                  <p className="text-blue-400 text-sm"><strong>Technologies:</strong> React, TypeScript, Node.js, MongoDB</p>
+                </div>
+                <div className="bg-gray-700 p-4 rounded-lg border-l-4 border-blue-500">
+                  <h5 className="text-white font-medium mb-2">ENKANASA-COW</h5>
+                  <p className="text-gray-300 text-sm mb-2">Innovative cattle management system with analytics dashboard</p>
+                  <p className="text-blue-400 text-sm"><strong>Technologies:</strong> React, Python, Django, PostgreSQL</p>
+                </div>
+                <div className="bg-gray-700 p-4 rounded-lg border-l-4 border-blue-500">
+                  <h5 className="text-white font-medium mb-2">ESHIPA-AFRICA</h5>
+                  <p className="text-gray-300 text-sm mb-2">Cultural heritage preservation platform with community features</p>
+                  <p className="text-blue-400 text-sm"><strong>Technologies:</strong> Next.js, Strapi, AWS, Mapbox</p>
+                </div>
+                <div className="bg-gray-700 p-4 rounded-lg border-l-4 border-blue-500">
+                  <h5 className="text-white font-medium mb-2">PyScanX</h5>
+                  <p className="text-gray-300 text-sm mb-2">Professional network reconnaissance tool for ethical security testing</p>
+                  <p className="text-blue-400 text-sm"><strong>Technologies:</strong> Python, Socket Programming, CLI</p>
+                </div>
+              </div>
             </div>
           </div>
-
-          {/* Download Buttons */}
-          <motion.div variants={itemVariants} className="text-center mt-8 space-y-4">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <motion.button
-                onClick={handleDownloadPDF}
-                disabled={isGeneratingPDF}
-                whileHover={{ scale: isGeneratingPDF ? 1 : 1.05 }}
-                whileTap={{ scale: isGeneratingPDF ? 1 : 0.95 }}
-                className="btn-primary inline-flex items-center space-x-2"
-              >
-                {isGeneratingPDF ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    <span>Generating PDF...</span>
-                  </>
-                ) : (
-                  <>
-                    <Download size={20} />
-                    <span>Download Modern PDF Resume</span>
-                  </>
-                )}
-              </motion.button>
-              
-              <motion.button
-                onClick={handlePreviewPDF}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-secondary inline-flex items-center space-x-2"
-              >
-                <FileText size={20} />
-                <span>Preview Resume</span>
-              </motion.button>
-            </div>
-            
-            <p className="text-sm text-dark-600 dark:text-dark-400">
-              The modern PDF resume includes all your latest achievements, projects, and professional information.
-            </p>
-          </motion.div>
         </motion.div>
-      </div>
 
-      {/* PDF Preview Modal */}
-      {showPDFPreview && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-auto">
-            <div className="sticky top-0 bg-white border-b p-4 flex justify-between items-center">
-              <h3 className="text-xl font-bold text-gray-900">Resume Preview</h3>
-              <div className="flex gap-2">
-                <motion.button
-                  onClick={handleDownloadPDF}
-                  disabled={isGeneratingPDF}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2"
-                >
-                  {isGeneratingPDF ? (
-                    <>
-                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      <span>Generating...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Download size={16} />
-                      <span>Download PDF</span>
-                    </>
-                  )}
-                </motion.button>
-                <motion.button
+        {/* PDF Preview Modal */}
+        {showPDFPreview && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+              <div className="flex justify-between items-center p-4 border-b">
+                <h3 className="text-xl font-semibold">Resume Preview</h3>
+                <button
                   onClick={() => setShowPDFPreview(false)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg"
+                  className="text-gray-500 hover:text-gray-700"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+              <div className="p-6">
+                <div className="text-center mb-6">
+                  <h1 className="text-2xl font-bold text-gray-900 mb-2">SILISIL ISAAC TAPARA</h1>
+                  <p className="text-lg text-blue-600 mb-2">Secure Software Engineer & Ethical Hacker</p>
+                  <div className="text-gray-600 space-y-1">
+                    <p>📧 isaactapara@gmail.com</p>
+                    <p>📱 +254 702 502 376</p>
+                    <p>📍 Kenya</p>
+                  </div>
+                </div>
+
+                <div className="space-y-6">
+                  <div>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-3">Professional Summary</h2>
+                    <p className="text-gray-700 leading-relaxed">
+                      A results-driven Secure Software Engineer and Ethical Hacker with 3+ years of experience in full-stack development and cybersecurity. Proven track record of building 5+ production-ready applications serving 1000+ users while maintaining 100% security compliance. Expert in React, TypeScript, Python, Node.js, and ethical hacking methodologies. Passionate about creating secure, scalable solutions that protect digital assets and promote cybersecurity awareness. Strong background in penetration testing, vulnerability assessment, and secure coding practices. Committed to continuous learning and contributing to the cybersecurity community through open-source projects and mentorship.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-3">Education</h2>
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                      <h3 className="text-lg font-medium text-gray-900">Bachelor of Science in Software Engineering</h3>
+                      <p className="text-blue-600 font-medium">Expected 2027</p>
+                      <p className="text-gray-700">Zetech University, Kenya</p>
+                      <p className="text-gray-600 text-sm mt-2">Comprehensive education in software development, system design, and computer science fundamentals.</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-3">Certifications</h2>
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                      <h3 className="text-lg font-medium text-gray-900">Professional Certificate in Ethical Hacking</h3>
+                      <p className="text-blue-600 font-medium">2025</p>
+                      <p className="text-gray-700">Cisco Networking Academy</p>
+                      <p className="text-gray-600 text-sm mt-2">Comprehensive certification covering penetration testing, vulnerability assessment, and ethical hacking methodologies.</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-3">Professional Experience</h2>
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                      <h3 className="text-lg font-medium text-gray-900">Full-Stack Developer & Cybersecurity Specialist</h3>
+                      <p className="text-blue-600 font-medium">Zetech University Student</p>
+                      <p className="text-gray-700">September 2024 - Present</p>
+                      <p className="text-gray-600 text-sm mt-2 mb-4">Software Engineering student at Zetech University specializing in full-stack development and cybersecurity. Built multiple production applications while pursuing formal education, focusing on security-first development practices and modern web technologies.</p>
+                      
+                      <div className="space-y-2">
+                        <div className="text-gray-700">• Built 4+ production-ready applications serving 1000+ users across different industries</div>
+                        <div className="text-gray-700">• Developed FAMALCOLLECTIONS - premium fashion e-commerce platform with real-time analytics, multi-user system, and comprehensive product management</div>
+                        <div className="text-gray-700">• Created ENKANASA-COW - premium Kenyan dairy brand platform showcasing Maasai-inspired products with modern UI/UX design</div>
+                        <div className="text-gray-700">• Built ESHIPA-AFRICA - non-profit organization platform empowering African youth, combating GBV, and promoting sustainable development</div>
+                        <div className="text-gray-700">• Developed PyScanX - professional network reconnaissance tool for ethical security testing with banner grabbing capabilities</div>
+                        <div className="text-gray-700">• Implemented secure authentication, data encryption, and privacy protection across all applications using modern security practices</div>
+                        <div className="text-gray-700">• Designed responsive, mobile-first user interfaces with modern UX/UI principles and accessibility standards</div>
+                        <div className="text-gray-700">• Integrated third-party APIs, payment systems, and cloud services for enhanced functionality and scalability</div>
+                        <div className="text-gray-700">• Deployed applications using modern DevOps practices, containerization, and cloud technologies</div>
+                        <div className="text-gray-700">• Balanced academic studies with practical software development projects, applying university coursework to real-world applications</div>
+                        <div className="text-gray-700">• Conducted security audits and implemented vulnerability assessments for all projects, maintaining 100% security compliance</div>
+                        <div className="text-gray-700">• Optimized application performance, achieving 95%+ uptime and fast loading times across all platforms</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-3">Technical Skills</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      <div className="bg-gray-50 p-4 rounded-lg">
+                        <h3 className="text-gray-900 font-medium mb-2">Frontend</h3>
+                        <p className="text-gray-700 text-sm">React, TypeScript, Next.js, Tailwind CSS, HTML5, CSS3</p>
+                      </div>
+                      <div className="bg-gray-50 p-4 rounded-lg">
+                        <h3 className="text-gray-900 font-medium mb-2">Backend</h3>
+                        <p className="text-gray-700 text-sm">Node.js, Python, Express.js, Django, REST APIs</p>
+                      </div>
+                      <div className="bg-gray-50 p-4 rounded-lg">
+                        <h3 className="text-gray-900 font-medium mb-2">Database</h3>
+                        <p className="text-gray-700 text-sm">MongoDB, PostgreSQL, MySQL, Redis</p>
+                      </div>
+                      <div className="bg-gray-50 p-4 rounded-lg">
+                        <h3 className="text-gray-900 font-medium mb-2">Cybersecurity</h3>
+                        <p className="text-gray-700 text-sm">Ethical Hacking, Penetration Testing, Kali Linux, Wireshark, Nmap</p>
+                      </div>
+                      <div className="bg-gray-50 p-4 rounded-lg">
+                        <h3 className="text-gray-900 font-medium mb-2">Tools</h3>
+                        <p className="text-gray-700 text-sm">Git, Docker, AWS, VS Code, Figma</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-3">Featured Projects</h2>
+                    <div className="space-y-4">
+                      <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+                        <h3 className="text-gray-900 font-medium mb-2">FAMALCOLLECTIONS</h3>
+                        <p className="text-gray-700 text-sm mb-2">Comprehensive family management platform with real-time features</p>
+                        <p className="text-blue-600 text-sm"><strong>Technologies:</strong> React, TypeScript, Node.js, MongoDB</p>
+                      </div>
+                      <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+                        <h3 className="text-gray-900 font-medium mb-2">ENKANASA-COW</h3>
+                        <p className="text-gray-700 text-sm mb-2">Innovative cattle management system with analytics dashboard</p>
+                        <p className="text-blue-600 text-sm"><strong>Technologies:</strong> React, Python, Django, PostgreSQL</p>
+                      </div>
+                      <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+                        <h3 className="text-gray-900 font-medium mb-2">ESHIPA-AFRICA</h3>
+                        <p className="text-gray-700 text-sm mb-2">Cultural heritage preservation platform with community features</p>
+                        <p className="text-blue-600 text-sm"><strong>Technologies:</strong> Next.js, Strapi, AWS, Mapbox</p>
+                      </div>
+                      <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+                        <h3 className="text-gray-900 font-medium mb-2">PyScanX</h3>
+                        <p className="text-gray-700 text-sm mb-2">Professional network reconnaissance tool for ethical security testing</p>
+                        <p className="text-blue-600 text-sm"><strong>Technologies:</strong> Python, Socket Programming, CLI</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="text-center text-gray-600 text-sm">
+                    <p><em>This resume was generated from my portfolio at isaactapara.github.io</em></p>
+                    <p><em>Last updated: October 13, 2025</em></p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex justify-end gap-4 p-4 border-t">
+                <button
+                  onClick={() => setShowPDFPreview(false)}
+                  className="px-6 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-lg transition-colors"
                 >
                   Close
-                </motion.button>
+                </button>
+                <button
+                  onClick={handleDownloadPDF}
+                  className="flex items-center gap-2 px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"
+                >
+                  <Download size={20} />
+                  Download PDF
+                </button>
               </div>
             </div>
-            <div className="p-4">
-              <ResumePDF />
-            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </section>
   );
 };
