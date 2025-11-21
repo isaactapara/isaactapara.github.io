@@ -19,9 +19,7 @@ A world-class, modern TypeScript portfolio showcasing my expertise as a Software
 
 ### 📄 **Comprehensive Resume System**
 - **Web Resume Display** with modern, professional layout
-- **PDF Generation** using jsPDF and html2canvas
-- **Downloadable Resume** with complete professional information
-- **Preview System** to view resume before downloading
+- **Complete Professional Information** with detailed experience and skills
 - **ATS-Friendly Format** for job applications
 
 ### 🛠️ **Technical Excellence**
@@ -71,9 +69,6 @@ A world-class, modern TypeScript portfolio showcasing my expertise as a Software
 - **React Icons** - Popular icons for technologies
 - **Custom Components** - Reusable, accessible UI components
 
-### **PDF Generation**
-- **jsPDF** - Client-side PDF generation
-- **html2canvas** - HTML to canvas conversion
 
 ### **Email Integration**
 - **EmailJS** - Client-side email service
@@ -135,7 +130,6 @@ isaactapara.github.io/
 │   │   ├── Hero.tsx
 │   │   ├── Projects.tsx
 │   │   ├── Resume.tsx
-│   │   ├── ResumePDF.tsx
 │   │   └── Skills.tsx
 │   ├── data/
 │   │   ├── achievements.ts
@@ -144,7 +138,6 @@ isaactapara.github.io/
 │   ├── types/
 │   │   └── motion.ts
 │   ├── utils/
-│   │   └── generatePDF.ts
 │   ├── App.tsx
 │   ├── main.tsx
 │   └── index.css
@@ -191,7 +184,6 @@ isaactapara.github.io/
 - Comprehensive professional resume
 - Modern, clean layout
 - Complete professional information
-- PDF generation and preview
 
 ### **📧 Contact Section**
 - Professional contact form
@@ -212,13 +204,6 @@ isaactapara.github.io/
 - Complete professional information
 - Interactive elements and animations
 - Responsive design
-
-### **Resume Preview**
-- Modal preview system
-- Professional formatting
-- Complete professional information
-- Easy-to-read layout
-- Error handling and loading states
 
 ## 🎨 **Customization**
 
@@ -242,8 +227,8 @@ colors: {
 - **Achievements**: Edit `src/data/achievements.ts`
 
 ### **Resume Content**
-- **Professional Summary**: Update in `src/components/Resume.tsx` and `src/components/ResumePDF.tsx`
-- **Experience**: Modify experience arrays in both components
+- **Professional Summary**: Update in `src/components/Resume.tsx`
+- **Experience**: Modify experience information in the component
 - **Education**: Update education information
 - **Skills**: Adjust skills and technologies
 

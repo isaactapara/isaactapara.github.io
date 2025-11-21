@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
 
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-dark-50 via-white to-dark-100 dark:from-dark-950 dark:via-dark-900 dark:to-dark-800" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           variants={containerVariants}
@@ -105,7 +105,7 @@ const Hero: React.FC = () => {
             variants={itemVariants}
             className="text-lg md:text-xl text-dark-600 dark:text-dark-400 mb-8 max-w-2xl mx-auto leading-relaxed"
           >
-            Passionate about building secure, scalable solutions and promoting cybersecurity awareness. 
+            Passionate about building secure, scalable solutions and promoting cybersecurity awareness.
             I create innovative software that makes a difference in people's lives while keeping them safe online.
           </motion.p>
 
@@ -125,7 +125,7 @@ const Hero: React.FC = () => {
               <MessageCircle size={20} />
               <span>Let's Connect</span>
             </motion.a>
-            
+
           </motion.div>
 
           {/* Skills Icons */}
@@ -140,7 +140,7 @@ const Hero: React.FC = () => {
               <Code size={24} />
               <span className="text-sm font-medium">Full-Stack</span>
             </motion.div>
-            
+
             <motion.div
               whileHover={{ scale: 1.2, opacity: 1 }}
               className="flex items-center space-x-2 text-dark-500 dark:text-dark-500"
@@ -148,7 +148,7 @@ const Hero: React.FC = () => {
               <Shield size={24} />
               <span className="text-sm font-medium">Security</span>
             </motion.div>
-            
+
             <motion.div
               whileHover={{ scale: 1.2, opacity: 1 }}
               className="flex items-center space-x-2 text-dark-500 dark:text-dark-500"

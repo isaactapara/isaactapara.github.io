@@ -1,24 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sun, Moon, Github, Linkedin, Mail, MessageCircle, Twitter } from 'lucide-react';
+import { useDarkMode } from '../hooks/useDarkMode';
 
 interface HeaderProps {
-  darkMode: boolean;
-  toggleDarkMode: () => void;
+  isScrolled: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
+const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const { darkMode, toggleDarkMode } = useDarkMode();
 
   const navItems = [
     { name: 'Home', href: '#home' },
@@ -42,11 +33,10 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
           ? 'bg-white/80 dark:bg-dark-900/80 backdrop-blur-md shadow-lg'
           : 'bg-transparent'
-      }`}
+        }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
@@ -146,7 +136,7 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
                     {item.name}
                   </motion.a>
                 ))}
-                
+
                 {/* Mobile Social Links */}
                 <div className="flex items-center space-x-4 pt-4 border-t border-dark-200 dark:border-dark-700">
                   {socialLinks.map((social, index) => (

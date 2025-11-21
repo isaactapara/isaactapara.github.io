@@ -6,7 +6,9 @@ export interface Project {
   technologies: string[];
   githubUrl: string;
   liveUrl?: string;
-  imageUrl?: string;
+  images: string[];
+  demoUrl?: string;
+  architecture?: string;
   category: 'web' | 'mobile' | 'cybersecurity' | 'ai' | 'blockchain';
   featured: boolean;
   status: 'completed' | 'in-progress' | 'planned';
@@ -19,41 +21,46 @@ export const projects: Project[] = [
   {
     id: 'famalcollections',
     title: 'FAMALCOLLECTIONS',
-    description: 'A modern, full-featured e-commerce platform specializing in premium fashion clothing and footwear with advanced features like product reservations, real-time inventory management, and comprehensive analytics.',
+    description: 'A modern, full-featured e-commerce platform specializing in premium fashion.',
     longDescription: 'FAMALCOLLECTIONS is a professional e-commerce platform built with cutting-edge technologies, providing a seamless shopping experience. The platform features complete product management with image galleries, real-time analytics for sales tracking and inventory monitoring, multi-user system with admin/worker/customer roles, secure authentication with Supabase Auth, comprehensive data export capabilities, and mobile-first responsive design.',
-    technologies: ['React 18', 'TypeScript', 'Vite', 'Tailwind CSS', 'Radix UI', 'Supabase', 'PostgreSQL', 'React Query', 'Jest', 'React Testing Library'],
+    technologies: ['React 18', 'TypeScript', 'Vite', 'Tailwind CSS', 'Radix UI', 'Supabase', 'PostgreSQL', 'React Query'],
     githubUrl: 'https://github.com/isaactapara/FAMALCOLLECTIONS.git',
+    images: [
+      'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=1200&auto=format&fit=crop'
+    ],
     category: 'web',
     featured: true,
     status: 'completed',
     achievements: [
-      'Built complete e-commerce platform with product management and image galleries',
-      'Implemented real-time analytics for sales tracking and inventory monitoring',
-      'Created multi-user system with role-based access control (admin/worker/customer)',
-      'Integrated secure authentication with Supabase Auth',
-      'Developed comprehensive data export capabilities in multiple formats',
-      'Designed mobile-first responsive UI with modern UX/UX principles'
+      'Built complete e-commerce platform with product management',
+      'Implemented real-time analytics for sales tracking',
+      'Created multi-user system with role-based access control',
+      'Integrated secure authentication with Supabase Auth'
     ],
     challenges: [
-      'Managing complex product catalog with multiple variants and images',
+      'Managing complex product catalog with multiple variants',
       'Implementing real-time inventory tracking across multiple users',
-      'Creating secure role-based access control for different user types',
-      'Optimizing performance for large product catalogs and analytics data'
+      'Creating secure role-based access control'
     ],
     solutions: [
-      'Used Supabase for robust backend with PostgreSQL and real-time subscriptions',
-      'Implemented React Query for efficient data fetching and caching',
-      'Created comprehensive role-based authentication with Supabase Auth',
-      'Optimized with Vite for fast builds and efficient bundling'
+      'Used Supabase for robust backend with PostgreSQL',
+      'Implemented React Query for efficient data fetching',
+      'Created comprehensive role-based authentication'
     ]
   },
   {
     id: 'enkanasa-cow',
     title: 'ENKANASA-COW',
-    description: 'A premium dairy company platform for ENKANASA COW, a Kenyan dairy company based in Narok County specializing in fresh milk and dairy products from grass-fed cows.',
-    longDescription: 'ENKANASA-COW is a premium dairy company platform showcasing high-quality dairy products from grass-fed cows in Narok County, Kenya. The platform features premium whole milk varieties, fresh milk in multiple sizes, long life milk, organic fresh milk, and a premium perfume collection with Maasai-inspired names. The platform promotes sustainable farming practices and community empowerment through premium dairy products.',
-    technologies: ['Vite', 'React 18+', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'React Router', 'Lucide React'],
+    description: 'A premium dairy company platform for ENKANASA COW in Narok County.',
+    longDescription: 'ENKANASA-COW is a premium dairy company platform showcasing high-quality dairy products from grass-fed cows in Narok County, Kenya. The platform features premium whole milk varieties, fresh milk in multiple sizes, long life milk, organic fresh milk, and a premium perfume collection with Maasai-inspired names.',
+    technologies: ['Vite', 'React 18+', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'React Router'],
     githubUrl: 'https://github.com/isaactapara/ENKANASA-COW.git',
+    images: [
+      'https://images.unsplash.com/photo-1528498033381-a9e5c4a5c769?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1550583724-b2692b85b150?q=80&w=1200&auto=format&fit=crop'
+    ],
     category: 'web',
     featured: true,
     status: 'completed',
@@ -61,30 +68,30 @@ export const projects: Project[] = [
       'Built premium dairy company platform with product showcase',
       'Created responsive design optimized for all devices',
       'Implemented modern UI with shadcn/ui component library',
-      'Developed mobile-first approach for optimal user experience',
-      'Integrated smooth navigation with React Router',
-      'Designed Maasai-inspired branding and product presentation'
+      'Designed Maasai-inspired branding'
     ],
     challenges: [
       'Creating an authentic representation of Kenyan dairy culture',
       'Designing for both local and international audiences',
-      'Showcasing premium products with cultural sensitivity',
-      'Implementing responsive design for various devices'
+      'Showcasing premium products with cultural sensitivity'
     ],
     solutions: [
       'Used Maasai-inspired design elements and product names',
       'Implemented modern web technologies for optimal performance',
-      'Created intuitive navigation and product presentation',
-      'Designed with accessibility and cultural awareness in mind'
+      'Created intuitive navigation and product presentation'
     ]
   },
   {
     id: 'eshipa-africa',
     title: 'ESHIPA-AFRICA',
-    description: 'A non-profit organization platform dedicated to empowering children and youths, combating gender-based violence, and promoting sustainable development across Africa.',
-    longDescription: 'ESHIPA Africa is a non-profit organization platform dedicated to empowering children and youths, combating gender-based violence, and promoting sustainable development across Africa through faith-inspired action and community engagement. The platform features children & youths empowerment programs, GBV prevention and support initiatives, environmental sustainability programs, peace resilience building, economic empowerment through vocational training, community engagement tools, and strategic partnership management.',
-    technologies: ['React 18', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'Vite', 'React Router', 'Lucide React', 'EmailJS', 'React Query', 'React Hook Form', 'Zod'],
+    description: 'Non-profit platform empowering children, youths, and promoting sustainability.',
+    longDescription: 'ESHIPA Africa is a non-profit organization platform dedicated to empowering children and youths, combating gender-based violence, and promoting sustainable development across Africa through faith-inspired action and community engagement.',
+    technologies: ['React 18', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'Vite', 'EmailJS'],
     githubUrl: 'https://github.com/isaactapara/ESHIPA-AFRICA.git',
+    images: [
+      'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1200&auto=format&fit=crop'
+    ],
     category: 'web',
     featured: true,
     status: 'completed',
@@ -92,32 +99,30 @@ export const projects: Project[] = [
       'Built comprehensive non-profit organization platform',
       'Implemented children & youths empowerment program features',
       'Created GBV prevention and support initiative tools',
-      'Developed environmental sustainability program sections',
-      'Integrated peace resilience and economic empowerment features',
-      'Implemented community engagement and partnership management tools',
-      'Created responsive design with WCAG compliant accessibility',
-      'Integrated EmailJS for contact form submissions and volunteer forms'
+      'Integrated EmailJS for contact form submissions'
     ],
     challenges: [
       'Creating a platform that addresses multiple social issues effectively',
       'Designing for diverse African communities and cultural contexts',
-      'Implementing comprehensive program management features',
-      'Ensuring accessibility and inclusivity across all features'
+      'Ensuring accessibility and inclusivity'
     ],
     solutions: [
       'Used modern React 18 with TypeScript for robust development',
-      'Implemented shadcn/ui for accessible and beautiful components',
-      'Created comprehensive form handling with React Hook Form and Zod validation',
+      'Implemented shadcn/ui for accessible components',
       'Designed with WCAG compliance for inclusive access'
     ]
   },
   {
     id: 'pyscanx',
     title: 'PyScanX',
-    description: 'A TCP port scanner with banner grabbing, built in Python for ethical reconnaissance and secure development workflows.',
+    description: 'A TCP port scanner with banner grabbing, built in Python.',
     longDescription: 'PyScanX is a professional-grade network reconnaissance tool designed for cybersecurity professionals and ethical hackers. It provides comprehensive port scanning capabilities with detailed service identification.',
-    technologies: ['Python', 'Socket Programming', 'Threading', 'CLI', 'JSON', 'CSV'],
+    technologies: ['Python', 'Socket Programming', 'Threading', 'CLI', 'JSON'],
     githubUrl: 'https://github.com/isaactapara/PyScanx',
+    images: [
+      'https://images.unsplash.com/photo-1558494949-efc0257bb3af?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200&auto=format&fit=crop'
+    ],
     category: 'cybersecurity',
     featured: true,
     status: 'completed',
@@ -141,10 +146,13 @@ export const projects: Project[] = [
   {
     id: 'cryptolockerx',
     title: 'CryptoLockerX',
-    description: 'A simulated ransomware demo tool for education and safe malware analysis practice.',
+    description: 'A simulated ransomware demo tool for education.',
     longDescription: 'CryptoLockerX is an educational tool that simulates ransomware behavior in a controlled environment. It helps cybersecurity students and professionals understand ransomware mechanics without the risks.',
     technologies: ['Python', 'Cryptography', 'GUI', 'Educational Tools'],
     githubUrl: '#',
+    images: [
+      'https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1200&auto=format&fit=crop'
+    ],
     category: 'cybersecurity',
     featured: false,
     status: 'in-progress',
@@ -167,10 +175,13 @@ export const projects: Project[] = [
   {
     id: 'network-monitor',
     title: 'Network Monitor',
-    description: 'A local Python-based tool to watch traffic, identify spikes, and log suspicious patterns on internal networks.',
+    description: 'Local Python-based tool to watch traffic and log suspicious patterns.',
     longDescription: 'Network Monitor is a comprehensive network analysis tool that provides real-time monitoring, traffic analysis, and security alerting for internal networks.',
-    technologies: ['Python', 'Network Programming', 'Data Analysis', 'Real-time Monitoring'],
+    technologies: ['Python', 'Network Programming', 'Data Analysis'],
     githubUrl: '#',
+    images: [
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop'
+    ],
     category: 'cybersecurity',
     featured: false,
     status: 'planned',

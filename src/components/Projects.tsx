@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github, Filter, Shield } from 'lucide-react';
+import { ExternalLink, Github, Filter, Eye } from 'lucide-react';
 import { projects, getFeaturedProjects, getProjectsByCategory, Project } from '../data/projects';
 import { containerVariants, itemVariants, scaleInVariants } from '../types/motion';
+import ProjectModal from './ProjectModal';
 
 const Projects: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(getFeaturedProjects());
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const categories = [
     { id: 'all', name: 'All Projects', count: projects.length },
@@ -47,6 +49,8 @@ const Projects: React.FC = () => {
 
   return (
     <section id="projects" className="py-20 bg-gray-50 dark:bg-dark-800">
+      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+
       <div className="container mx-auto px-4">
         <motion.div
           variants={containerVariants}
@@ -62,7 +66,7 @@ const Projects: React.FC = () => {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-primary-600 mx-auto mb-6" />
             <p className="text-lg text-dark-600 dark:text-dark-400 max-w-3xl mx-auto">
-              Here are some of my recent projects that showcase my skills in full-stack development, 
+              Here are some of my recent projects that showcase my skills in full-stack development,
               cybersecurity, and innovative problem-solving.
             </p>
           </motion.div>
@@ -76,11 +80,10 @@ const Projects: React.FC = () => {
                   onClick={() => handleCategoryChange(category.id)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center space-x-2 ${
-                    selectedCategory === category.id
-                      ? 'bg-primary-600 text-white shadow-lg'
-                      : 'bg-white dark:bg-dark-700 text-dark-600 dark:text-dark-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 dark:hover:text-primary-400'
-                  }`}
+                  className={`px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center space-x-2 ${selectedCategory === category.id
+                    ? 'bg-primary-600 text-white shadow-lg'
+                    : 'bg-white dark:bg-dark-700 text-dark-600 dark:text-dark-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 dark:hover:text-primary-400'
+                    }`}
                 >
                   <Filter size={16} />
                   <span>{category.name}</span>
@@ -105,36 +108,58 @@ const Projects: React.FC = () => {
                   initial={{ opacity: 0, scale: 0.9, y: 30 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.9, y: -30 }}
-                  transition={{ 
-                    duration: 0.6, 
+                  transition={{
+                    duration: 0.6,
                     delay: index * 0.15,
                     ease: [0.25, 0.46, 0.45, 0.94],
                     type: "spring",
                     stiffness: 100,
                     damping: 20
                   }}
-                  className="bg-white dark:bg-dark-700 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group"
+                  className="bg-white dark:bg-dark-700 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group flex flex-col h-full"
                 >
                   {/* Project Image/Icon */}
-                  <div className="h-48 bg-gradient-to-br from-primary-100 to-primary-200 dark:from-primary-900/20 dark:to-primary-800/20 flex items-center justify-center relative overflow-hidden">
-                    <div className="text-6xl">{getCategoryIcon(project.category)}</div>
-                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-300" />
-                    
+                  <div className="h-48 bg-gray-900 relative overflow-hidden group-hover:scale-105 transition-transform duration-500">
+                    {project.images && project.images.length > 0 ? (
+                      <img
+                        src={project.images[0]}
+                        alt={project.title}
+                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-900 to-dark-900">
+                        <span className="text-4xl">{getCategoryIcon(project.category)}</span>
+                      </div>
+                    )}
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark-900/90 to-transparent opacity-60" />
+
                     {/* Status Badge */}
-                    <div className="absolute top-4 right-4">
-                      <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(project.status)}`}>
+                    <div className="absolute top-4 right-4 z-10">
+                      <span className={`px-3 py-1 rounded-full text-xs font-medium shadow-lg ${getStatusColor(project.status)}`}>
                         {project.status.replace('-', ' ')}
                       </span>
+                    </div>
+
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <button
+                        onClick={() => setSelectedProject(project)}
+                        className="px-6 py-2 bg-white text-dark-900 rounded-full font-bold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center space-x-2 hover:bg-primary-50"
+                      >
+                        <Eye size={18} />
+                        <span>View Details</span>
+                      </button>
                     </div>
                   </div>
 
                   {/* Project Content */}
-                  <div className="p-6">
+                  <div className="p-6 flex-1 flex flex-col">
                     <div className="flex items-start justify-between mb-3">
-                      <h3 className="text-xl font-bold text-dark-800 dark:text-dark-200 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300">
+                      <h3 className="text-xl font-bold text-dark-800 dark:text-dark-200 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300 line-clamp-1">
                         {project.title}
                       </h3>
-                      <div className="flex space-x-2">
+                      <div className="flex space-x-2 shrink-0">
                         {project.githubUrl !== '#' && (
                           <motion.a
                             href={project.githubUrl}
@@ -143,6 +168,7 @@ const Projects: React.FC = () => {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                             className="p-2 text-dark-600 dark:text-dark-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-lg transition-all duration-300"
+                            title="View Code"
                           >
                             <Github size={18} />
                           </motion.a>
@@ -155,6 +181,7 @@ const Projects: React.FC = () => {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                             className="p-2 text-dark-600 dark:text-dark-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-lg transition-all duration-300"
+                            title="Live Demo"
                           >
                             <ExternalLink size={18} />
                           </motion.a>
@@ -162,57 +189,37 @@ const Projects: React.FC = () => {
                       </div>
                     </div>
 
-                    <p className="text-dark-600 dark:text-dark-400 mb-4 leading-relaxed">
+                    <p className="text-dark-600 dark:text-dark-400 mb-4 leading-relaxed line-clamp-3 text-sm flex-1">
                       {project.description}
                     </p>
 
                     {/* Technologies */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.technologies.slice(0, 4).map((tech) => (
+                    <div className="flex flex-wrap gap-2 mb-4 mt-auto">
+                      {project.technologies.slice(0, 3).map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 bg-primary-100 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 text-xs rounded-full font-medium"
+                          className="px-2.5 py-0.5 bg-primary-100 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 text-[10px] uppercase tracking-wider rounded-full font-medium"
                         >
                           {tech}
                         </span>
                       ))}
-                      {project.technologies.length > 4 && (
-                        <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded-full font-medium">
-                          +{project.technologies.length - 4} more
+                      {project.technologies.length > 3 && (
+                        <span className="px-2.5 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-[10px] uppercase tracking-wider rounded-full font-medium">
+                          +{project.technologies.length - 3}
                         </span>
                       )}
                     </div>
 
-                    {/* Key Achievements */}
-                    {project.achievements.length > 0 && (
-                      <div className="mb-4">
-                        <h4 className="text-sm font-semibold text-dark-700 dark:text-dark-300 mb-2 flex items-center">
-                          <Shield size={14} className="mr-1" />
-                          Key Achievements
-                        </h4>
-                        <ul className="text-xs text-dark-600 dark:text-dark-400 space-y-1">
-                          {project.achievements.slice(0, 2).map((achievement, idx) => (
-                            <li key={idx} className="flex items-start">
-                              <span className="text-primary-500 mr-2">•</span>
-                              {achievement}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-
                     {/* Action Button */}
-                    <motion.a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <motion.button
+                      onClick={() => setSelectedProject(project)}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-300 flex items-center justify-center space-x-2"
+                      className="w-full bg-white dark:bg-dark-600 border border-gray-200 dark:border-dark-500 hover:border-primary-500 dark:hover:border-primary-500 text-dark-700 dark:text-dark-200 font-medium py-2.5 px-4 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 text-sm group-hover:bg-primary-600 group-hover:text-white group-hover:border-transparent"
                     >
-                      <span>View Project</span>
-                      <ExternalLink size={16} />
-                    </motion.a>
+                      <span>View Details</span>
+                      <Eye size={16} />
+                    </motion.button>
                   </div>
                 </motion.div>
               ))}
