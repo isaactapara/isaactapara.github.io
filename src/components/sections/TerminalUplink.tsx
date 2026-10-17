@@ -181,7 +181,8 @@ ${sha.slice(48)}==
           type: 'output',
           content: `AVAILABLE COMMAND DIRECTORY:
   bio           - Display Isaac's engineering background and credentials
-  fintech       - Real-time trading engines & myelitetrader.com telemetry
+  skills        - Display categorized technical skills and architectures
+  fintech       - Real-time trading engines, Deriv API & payment gateways
   security      - Penetration testing & offensive security research
   pyscanx <ip>  - Run multi-threaded socket reconnaissance engine
   ping <host>   - Transmit ICMP echo telemetry packets
@@ -199,23 +200,42 @@ ${sha.slice(48)}==
           type: 'output',
           content: `SILISIL ISAAC TAPARA
 ----------------------------------------------------------------
-Role:        Secure Software Engineer & Ethical Hacker
-Specialties: Real-Time Trading Engines | Low-Latency Telemetry | Zero-Trust Kernels
-Location:    Kenya (Worldwide / Remote Ready)
+Role:        Full-Stack & Trading Systems Engineer | Security Specialist
+Specialties: Scalable Web Architectures | Real-Time Trading | Payment Gateways
+Summary:     Results-driven engineer specializing in secure transactional payment
+             flows (M-Pesa Daraja), trading platform automation (Deriv), and
+             reactive multi-platform desktop/mobile user experiences.
+Location:    Nairobi, Kenya (Worldwide / Remote Ready)
 Email:       isaactapara@gmail.com
 GitHub:      github.com/isaactapara`,
+        });
+        break;
+
+      case 'skills':
+        newLogs.push({
+          type: 'output',
+          content: `TECHNICAL SKILLS DIRECTORY
+----------------------------------------------------------------
+Languages:   Python, JavaScript, TypeScript, C#, PHP
+Frontend:    React, Astro, Tailwind CSS, HTML5/CSS3, Cross-Platform Desktop & Mobile
+Backend:     Node.js, Express, Django, RESTful APIs, Webhooks, Socket Architecture
+Cloud & DB:  PostgreSQL, Supabase, Docker, Linux, cPanel, Vercel, Hetzner, CI/CD
+Security:    API Authentication/OAuth, Secure Payload Parsing, M-Pesa Daraja,
+             Trading Algorithm Automation, n8n Workflows, Zero-Trust Hardening`,
         });
         break;
 
       case 'fintech':
         newLogs.push({
           type: 'output',
-          content: `FINTECH & TRADING INFRASTRUCTURE (myelitetrader.com)
+          content: `FINTECH & TRADING INFRASTRUCTURE (MyEliteTrader & Payment Systems)
 ----------------------------------------------------------------
-Architecture: Sub-millisecond WebSocket market depth datafeed
-Visualizer:   Reactive candlestick engine & live order book streams
-Security:     Zero-trust execution sandboxes & rate-limiting throttling
-SLA Uptime:   99.98% availability guarantee`,
+Platform:    MyEliteTrader (myelitetrader.com) & Deriv Markets
+Ecosystem:   Downloadable applications across desktop and mobile ecosystems
+Algorithms:  Advanced algorithmic automation alternative to traditional trading bots
+Charting:    Specialized charting metrics for rise/fall & over/under market strategies
+Gateways:    Deriv account OAuth gates, M-Pesa Daraja automated reconciliation,
+             Node.js/Express backend payment services with async webhook parsing`,
         });
         break;
 

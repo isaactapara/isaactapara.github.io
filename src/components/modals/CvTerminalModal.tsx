@@ -10,67 +10,63 @@ interface CvTerminalModalProps {
 
 const RAW_CV_DATA = `=========================================================
 SILISIL ISAAC TAPARA // CURRICULUM VITAE
-Secure Software Engineer | Ethical Hacker | Full-Stack Architect
+Full-Stack & Trading Systems Engineer | Security Specialist
 =========================================================
 
-> SUMMARY
-High-caliber Systems & Security Engineer specializing in high-throughput trading software,
-low-latency market data visualization, and offensive zero-trust infrastructure. Proven track record
-architecting and deploying scalable production platforms (fintech, e-commerce, enterprise ERP)
-coupled with custom multi-threaded Python reconnaissance engines. Driven by an offensive security
-mindset: engineering software that is impervious to modern threat vectors.
+> PROFESSIONAL SUMMARY
+Results-driven Full-Stack Software Engineer specializing in scalable web architectures,
+secure transactional payment flows, and high-performance trading platforms. Proven track record
+architecting robust backend services, integrating secure API gateways (such as M-Pesa Daraja
+and Deriv), and implementing strict data protection measures. Adept at bridging complex financial
+logic with automated algorithms and clean, reactive multi-platform user experiences.
 
 > CONTACT & CHANNELS
 - Email: isaactapara@gmail.com
 - Mobile / WhatsApp: +254 702 502 376
-- Location: Kenya (Remote / Worldwide Ready)
+- Location: Nairobi, Kenya (Remote / Worldwide Ready)
 - LinkedIn: linkedin.com/in/isaacktapara
 - GitHub: github.com/isaactapara
 - Portfolio: https://isaactapara.github.io
 
-> CORE TECHNICAL SKILLS
-- Languages: TypeScript, JavaScript (ES6+), Python, SQL, HTML5, CSS3
-- Web & Frontend: React 19, Vite, Next.js, Tailwind CSS, Radix UI, Framer Motion, GSAP
-- Backend & DB: Node.js, Express, Python Sockets, PostgreSQL, Supabase, REST APIs
-- Cybersecurity & Tools: Kali Linux, Wireshark, Port Scanning, Banner Grabbing,
-  Vulnerability Assessment, Git, Docker, Linux SysAdmin
+> TECHNICAL SKILLS
+- Languages & Core: Python, JavaScript, TypeScript, C#, PHP
+- Frontend & Multi-Platform: React, Astro, Tailwind CSS, HTML5/CSS3, Cross-Platform Desktop & Mobile Apps
+- Backend & APIs: Node.js, Express, Django, RESTful APIs, Webhooks, Socket Architecture
+- Databases & Cloud: PostgreSQL, Supabase, Docker, Linux, cPanel, Vercel, Hetzner, Git/GitHub Actions
+- Security & FinTech: API Authentication/OAuth, Secure Payload Parsing, Payment Gateways (Daraja/M-Pesa),
+  Trading Algorithm Automation, CI/CD Pipelines
 
-> KEY PRODUCTION PLATFORMS & PROJECTS
-1. FAMALCOLLECTIONS [Live E-Commerce Platform]
+> PROFESSIONAL & PROJECT EXPERIENCE
+1. MyEliteTrader (myelitetrader.com) [Full-Stack & Trading Systems Engineer - Current]
+   - Engineered online trading & analysis software designed for binary options and Deriv markets.
+   - Deployed downloadable cross-platform applications across desktop and mobile ecosystems.
+   - Developed algorithmic automation as a dynamic alternative to traditional trading bots.
+   - Built specialized charting metrics tailored for complex rise/fall and over/under strategies.
+   - Connected Deriv account authentication gates and Node.js/Express backend payment webhook parsing.
+
+2. Regional Revenue & Transaction System [Backend & Payment Gateway Architect]
+   - Designed comprehensive software architecture and data models using Django and React.
+   - Streamlined localized digital payments, secure tracking, and automated M-Pesa Daraja flows.
+   - Implemented strict transaction verification and asynchronous webhook reconciliations.
+
+3. Self-Hosted Infrastructure, Automation & Security Engineering
+   - Configured and managed self-hosted Linux server infrastructure (Hetzner, Docker, cPanel).
+   - Engineered n8n automated workflows for continuous monitoring and event-driven notifications.
+   - Built isolated testing environments and automated CI/CD deployment pipelines via GitHub Actions.
+
+4. FAMALCOLLECTIONS [Live Production E-Commerce Platform]
    - Built full-featured e-commerce system with Supabase Auth, PostgreSQL, React Query.
-   - Real-time analytics, inventory management, role-based access control.
-   - GitHub: github.com/isaactapara/FAMALCOLLECTIONS
+   - Role-based access control (RBAC), inventory analytics, and automated reporting.
 
-2. ENKANASA-COW [Enterprise Dairy Platform]
-   - Commercial platform for dairy operations in Narok County, Kenya.
-   - Modern React, TypeScript, responsive branding and catalog showcase.
-   - GitHub: github.com/isaactapara/ENKANASA-COW
-
-3. ESHIPA-AFRICA [Non-Profit Empowerment Platform]
-   - Community portal combating GBV and empowering youth.
-   - WCAG-compliant accessible architecture with EmailJS integrations.
-   - GitHub: github.com/isaactapara/ESHIPA-AFRICA
-
-4. PyScanX [Network Reconnaissance Engine]
+5. PyScanX & CryptoLockerX [Offensive Security & Reconnaissance Tooling]
    - Multi-threaded TCP port scanner with dynamic banner grabbing written in Python.
-   - Stealth scan profiles and structured JSON reporting.
-   - GitHub: github.com/isaactapara/PyScanx
-
-5. CryptoLockerX [Educational Ransomware Simulator]
-   - Sandboxed demonstration tool built for controlled academic security exercises.
-
-> PROFESSIONAL EXPERIENCE & ROLES
-- Software Developer — myelitetrader.com (Current)
-  Developing high-performance trading software. Focused on real-time market data visualization,
-  secure execution environments, and scalable full-stack architectures.
+   - Sandboxed educational ransomware simulation analyzing cryptographic threat vectors.
 
 > EDUCATION & CERTIFICATIONS
-- Bachelor of Science in Software Engineering — Zetech University (2024 — 2026)
-  Specializing in Data Structures, Algorithms, Secure Database Systems, and Advanced Web Technologies.
-- Cyber Security Certifications — Harvard CS50 / Cisco (2025)
-  Focused on penetration testing and securing applications against financial sector vulnerabilities.
-- Practical Ethical Hacking & Network Defense Certifications
-- High-Performance Web Architecture Studies
+- B.S. Software Engineering — Zetech University (2024 — 2026)
+  Specializing in Data Structures, Algorithms, Secure Database Systems, and Distributed Computing.
+- Financial Systems Penetration Testing & Cybersecurity Operations — Harvard CS50 / Cisco (2025)
+- Practical Ethical Hacking, Application Defense & Zero-Trust Architecture
 
 =========================================================
 [TRANSMISSION END: ROOT_VERIFIED]

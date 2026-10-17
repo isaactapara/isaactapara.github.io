@@ -10,10 +10,10 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ playTick, onOpenCvModal }) => {
   const phrases = [
-    'Secure Software Engineer',
-    'Ethical Hacker & Recon',
-    'Full-Stack Developer',
-    'Fintech & E-Commerce Systems',
+    'Full-Stack & Trading Systems Engineer',
+    'Secure Transaction & Payment Architect',
+    'Algorithmic Trading & Deriv Markets',
+    'Ethical Hacker & Recon Specialist',
   ];
 
   const typedRole = useTypewriter(phrases, 90, 45, 2200);
@@ -61,8 +61,7 @@ export const Hero: React.FC<HeroProps> = ({ playTick, onOpenCvModal }) => {
 
         {/* Bio Editorial Paragraph */}
         <p className="max-w-2xl text-base sm:text-lg text-[var(--text-muted)] leading-relaxed mb-10 mx-auto md:mx-0">
-          Systems &amp; Security Engineer specializing in real-time trading engines and low-latency distributed architectures. 
-          Architecting robust production platforms with an offensive zero-trust mindset, bridging high-throughput data pipelines with resilient, fault-tolerant execution.
+          Full-Stack Software Engineer specializing in scalable web architectures, secure transactional payment flows (M-Pesa Daraja), and high-performance trading platforms (Deriv). Bridging complex financial logic with automated algorithms and clean, reactive multi-platform user experiences.
         </p>
 
         {/* CTA Magnetic Buttons */}

@@ -19,6 +19,69 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 'myelitetrader',
+    title: 'MyEliteTrader',
+    description: 'High-performance trading software & algorithmic automation platform for binary options and Deriv markets.',
+    longDescription: 'Engineered a comprehensive online trading software and analysis platform designed explicitly for binary options and Deriv markets. Successfully deployed the software as downloadable applications across both desktop and mobile ecosystems. Features advanced algorithmic automation functioning as a dynamic, high-performance alternative to traditional trading bots, specialized charting metrics tailored for complex rise/fall and over/under strategies, active Deriv OAuth account authentication, and a robust Node.js/Express backend payment service with strict server routing and asynchronous webhook parsing.',
+    technologies: ['TypeScript', 'React', 'Python', 'C#', 'Node.js', 'Express', 'Deriv API', 'WebSockets', 'Astro', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/isaactapara',
+    liveUrl: 'https://myelitetrader.com',
+    images: [
+      'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1642543492481-44e81e3914a7?q=80&w=1200&auto=format&fit=crop'
+    ],
+    category: 'web',
+    featured: true,
+    status: 'completed',
+    achievements: [
+      'Engineered online trading & analysis software for Deriv markets',
+      'Deployed downloadable cross-platform applications across desktop and mobile',
+      'Developed algorithmic automation alternative to traditional trading bots',
+      'Architected secure Deriv account OAuth and asynchronous webhook services'
+    ],
+    challenges: [
+      'Sub-millisecond data telemetry under heavy market volatility',
+      'Synchronizing charting metrics for rise/fall and over/under strategies',
+      'Managing secure third-party gateway connections with zero rate-limit drops'
+    ],
+    solutions: [
+      'Engineered low-latency WebSocket connection manager with auto-reconnect',
+      'Implemented robust Node.js/Express server routing with webhook parsing',
+      'Built multi-platform responsive interfaces with React and C#'
+    ]
+  },
+  {
+    id: 'regional-revenue',
+    title: 'Regional Revenue & Transaction Gateway',
+    description: 'Scalable revenue and transaction system architected with Django and React, integrating M-Pesa Daraja payment flows.',
+    longDescription: 'Designed comprehensive software architecture and data model structures using Django and React to streamline localized digital payments, secure data tracking, automated M-Pesa Daraja payment gateway verification, and user transaction management.',
+    technologies: ['Django', 'Python', 'React', 'PostgreSQL', 'M-Pesa Daraja API', 'RESTful APIs', 'Docker', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/isaactapara',
+    images: [
+      'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200&auto=format&fit=crop'
+    ],
+    category: 'web',
+    featured: true,
+    status: 'completed',
+    achievements: [
+      'Designed end-to-end data model structures with Django REST Framework',
+      'Integrated automated M-Pesa Daraja payment gateway flows',
+      'Implemented secure transaction tracking and real-time reconciliation',
+      'Built reactive management dashboard with React and PostgreSQL'
+    ],
+    challenges: [
+      'Handling asynchronous mobile money payment callbacks reliably',
+      'Preventing double-spend and transaction state race conditions',
+      'Creating scalable database schemas for high-frequency user transactions'
+    ],
+    solutions: [
+      'Implemented idempotent webhook handler with transactional rollbacks',
+      'Configured PostgreSQL ACID-compliant constraints and row locking',
+      'Containerized environment using Docker for isolated testing and deployment'
+    ]
+  },
+  {
     id: 'famalcollections',
     title: 'FAMALCOLLECTIONS',
     description: 'A modern, full-featured e-commerce platform specializing in premium fashion.',

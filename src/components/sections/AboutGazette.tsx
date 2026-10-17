@@ -70,9 +70,10 @@ export const AboutGazette: React.FC<AboutGazetteProps> = ({ playTick, onOpenCvMo
               <p>
                 Currently engineering high-throughput production systems, Isaac architects software
                 that handles real-time market data visualization and secure execution environments
-                for high-frequency financial platforms like <strong>myelitetrader.com</strong>. His technological
-                stack combines performant TypeScript ecosystems, low-latency Python data engines,
-                and zero-trust SQL architectures.
+                for platforms like <strong>myelitetrader.com</strong> (binary options &amp; Deriv markets)
+                and regional revenue systems (M-Pesa Daraja payment verification). His technological stack spans
+                performant TypeScript/React ecosystems, Django and Node.js APIs, C# desktop/mobile apps,
+                and self-hosted Docker infrastructure with n8n workflow automation.
               </p>
 
               {/* Futuristic Architecture Tenets */}
