@@ -283,15 +283,44 @@ a {
     object-fit: cover;
     object-position: top center;
     border-radius: 4px;
-    filter: blur(20px) grayscale(100%) brightness(0.6);
-    transform: scale(1.1);
-    transition: filter 1.2s cubic-bezier(0.19, 1, 0.22, 1), transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+    filter: grayscale(25%) contrast(1.05) brightness(0.96);
+    transform: scale(1);
+    transition: filter 0.8s cubic-bezier(0.19, 1, 0.22, 1), transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .image-wrapper:hover .profile-img-fluid,
 .gazette-image-box:hover .fluid-blur-image {
-    filter: blur(0px) grayscale(0%) brightness(1);
-    transform: scale(1);
+    filter: grayscale(0%) contrast(1.1) brightness(1.02);
+    transform: scale(1.03);
+}
+
+/* Cyber Hologram Scanner Effect */
+.cyber-scanner-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-green), transparent);
+    box-shadow: 0 0 12px var(--accent-green);
+    opacity: 0.75;
+    z-index: 10;
+    pointer-events: none;
+    animation: cyberScan 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes cyberScan {
+    0% {
+        top: 2%;
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 0.9;
+    }
+    100% {
+        top: 96%;
+        opacity: 0.2;
+    }
 }
 
 /* Timeline */

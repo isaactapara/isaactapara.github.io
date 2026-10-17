@@ -68,31 +68,70 @@ export const AboutGazette: React.FC<AboutGazetteProps> = ({ playTick, onOpenCvMo
                 gap between complex raw data processing and pixel-perfect user interfaces.
               </p>
               <p>
-                Currently engineering the future across production systems, Isaac architects robust
-                software that handles real-time market data visualization and secure execution
-                environments. His technological stack leans heavily into performant JavaScript and
-                TypeScript ecosystems, Python data pipelines, and highly secure SQL architectures.
+                Currently engineering high-throughput production systems, Isaac architects software
+                that handles real-time market data visualization and secure execution environments
+                for high-frequency financial platforms like <strong>myelitetrader.com</strong>. His technological
+                stack combines performant TypeScript ecosystems, low-latency Python data engines,
+                and zero-trust SQL architectures.
               </p>
-              <br />
-              <button
-                id="btn-generate-cv"
-                className="btn btn-primary magnetic-btn hover-sound inline-flex items-center gap-2"
-                onClick={() => {
-                  if (playTick) playTick();
-                  if (onOpenCvModal) onOpenCvModal();
-                }}
-              >
-                &gt; GENERATE_CV.exe
-              </button>
+
+              {/* Futuristic Architecture Tenets */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 my-5 font-mono text-[11px]">
+                <div className="p-2.5 rounded bg-[var(--bg-card)] border border-[var(--border-color)]">
+                  <div className="text-[var(--accent-green)] font-bold mb-0.5">01. SUB-10MS LATENCY</div>
+                  <div className="text-[var(--text-muted)] text-[10px]">Real-time WebSocket market depth telemetry</div>
+                </div>
+                <div className="p-2.5 rounded bg-[var(--bg-card)] border border-[var(--border-color)]">
+                  <div className="text-[var(--accent-blue)] font-bold mb-0.5">02. ZERO-TRUST CORE</div>
+                  <div className="text-[var(--text-muted)] text-[10px]">Adversarial threat modeling &amp; penetration testing</div>
+                </div>
+                <div className="p-2.5 rounded bg-[var(--bg-card)] border border-[var(--border-color)]">
+                  <div className="text-[var(--text-primary)] font-bold mb-0.5">03. ACID RESILIENCE</div>
+                  <div className="text-[var(--text-muted)] text-[10px]">Automated reconciliation &amp; distributed scale</div>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3 pt-2">
+                <button
+                  id="btn-generate-cv"
+                  className="btn btn-primary magnetic-btn hover-sound inline-flex items-center gap-2"
+                  onClick={() => {
+                    if (playTick) playTick();
+                    if (onOpenCvModal) onOpenCvModal();
+                  }}
+                >
+                  &gt; GENERATE_CV.exe
+                </button>
+                <a
+                  href="#experience"
+                  onClick={() => playTick && playTick()}
+                  className="btn btn-secondary hover-sound inline-flex items-center gap-2 text-xs font-mono"
+                >
+                  &gt; VIEW_MILESTONES.sh
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* Profile Image with Fluid Blur Mask */}
+          {/* Profile Image with Cyber Hologram Scanner & HUD Overlays */}
           <div className="gazette-image">
-            <div className="image-wrapper frameless-mask">
+            <div className="image-wrapper frameless-mask relative group">
+              {/* Laser Scanline */}
+              <div className="cyber-scanner-line" />
+
+              {/* Corner Telemetry HUD Badges */}
+              <div className="absolute top-3 left-3 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded bg-black/70 backdrop-blur-md border border-[var(--border-color)] text-[10px] font-mono text-[var(--accent-green)]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-green)] animate-ping" />
+                <span>OPERATOR // SILISIL_ISAAC</span>
+              </div>
+
+              <div className="absolute bottom-3 right-3 z-20 hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded bg-black/70 backdrop-blur-md border border-[var(--border-color)] text-[10px] font-mono text-[var(--text-muted)]">
+                <span>CLEARANCE: ROOT // ZERO-TRUST</span>
+              </div>
+
               <img
-                src="/assets/isaac.jpg"
-                alt="Isaac Profile"
+                src="/assets/isaac.jpeg"
+                alt="Silisil Isaac Tapara - Secure Software Engineer & Ethical Hacker"
                 className="profile-img-fluid theme-target-img"
               />
             </div>

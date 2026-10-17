@@ -22,11 +22,24 @@ export const Hero: React.FC<HeroProps> = ({ playTick, onOpenCvModal }) => {
     <section id="home" className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
       <div className="section-container relative z-10 w-full text-center md:text-left flex flex-col justify-center">
         
-        {/* Status Pill */}
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-card)] text-xs font-mono mb-8 w-fit mx-auto md:mx-0 shadow-sm">
-          <span className="w-2 h-2 rounded-full bg-[var(--term-green)] animate-pulse" />
-          <span className="text-[var(--text-muted)]">SYSTEM_STATUS:</span>
-          <span className="text-[var(--accent-green)] font-semibold">ONLINE // VERIFIED</span>
+        {/* Futuristic Live Telemetry Ticker HUD */}
+        <div className="flex flex-wrap items-center gap-2.5 font-mono text-xs mb-8 justify-center md:justify-start">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-card)] shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-[var(--accent-green)] animate-ping" />
+            <span className="text-[var(--text-muted)]">SYSTEM_STATUS:</span>
+            <span className="text-[var(--accent-green)] font-semibold">ONLINE // VERIFIED</span>
+          </div>
+
+          <div className="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-card)] text-[var(--text-muted)]">
+            <span>FINTECH:</span>
+            <span className="text-[var(--accent-blue)] font-bold">myelitetrader.com</span>
+            <span className="text-[var(--accent-green)] font-mono">(&lt;10ms)</span>
+          </div>
+
+          <div className="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--border-color)] bg-[var(--bg-card)] text-[var(--text-muted)]">
+            <span>DEFENSE:</span>
+            <span className="text-[var(--text-primary)] font-bold">ZERO-TRUST KERNEL</span>
+          </div>
         </div>
 
         {/* Massive Neumorphic Title */}

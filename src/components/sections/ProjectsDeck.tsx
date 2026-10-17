@@ -56,7 +56,7 @@ export const ProjectsDeck: React.FC<ProjectsDeckProps> = ({ playTick }) => {
               <SwiperSlide key={proj.id} className="project-card data-card">
                 <div className="card-image-wrapper">
                   <img
-                    src={proj.images[0] || '/assets/isaac.jpg'}
+                    src={proj.images[0] || '/assets/isaac.jpeg'}
                     alt={proj.title}
                     className="card-image"
                     loading="lazy"
