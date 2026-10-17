@@ -14,11 +14,11 @@ Secure Software Engineer | Ethical Hacker | Full-Stack Architect
 =========================================================
 
 > SUMMARY
-Passionate Software Engineering student at Zetech University and Cybersecurity
-Specialist. Proven track record architecting and deploying 4+ production systems
-including e-commerce, non-profit, and agricultural platforms, coupled with custom
-multi-threaded Python reconnaissance and network monitoring tools. Driven by an
-offensive security mindset: building software that is impervious to modern threat vectors.
+High-caliber Systems & Security Engineer specializing in high-throughput trading software,
+low-latency market data visualization, and offensive zero-trust infrastructure. Proven track record
+architecting and deploying scalable production platforms (fintech, e-commerce, enterprise ERP)
+coupled with custom multi-threaded Python reconnaissance engines. Driven by an offensive security
+mindset: engineering software that is impervious to modern threat vectors.
 
 > CONTACT & CHANNELS
 - Email: isaactapara@gmail.com
@@ -59,8 +59,16 @@ offensive security mindset: building software that is impervious to modern threa
 5. CryptoLockerX [Educational Ransomware Simulator]
    - Sandboxed demonstration tool built for controlled academic security exercises.
 
+> PROFESSIONAL EXPERIENCE & ROLES
+- Software Developer — myelitetrader.com (Current)
+  Developing high-performance trading software. Focused on real-time market data visualization,
+  secure execution environments, and scalable full-stack architectures.
+
 > EDUCATION & CERTIFICATIONS
-- Bachelor of Science in Software Engineering — Zetech University (2024 — Present)
+- Bachelor of Science in Software Engineering — Zetech University (2024 — 2026)
+  Specializing in Data Structures, Algorithms, Secure Database Systems, and Advanced Web Technologies.
+- Cyber Security Certifications — Harvard CS50 / Cisco (2025)
+  Focused on penetration testing and securing applications against financial sector vulnerabilities.
 - Practical Ethical Hacking & Network Defense Certifications
 - High-Performance Web Architecture Studies
 

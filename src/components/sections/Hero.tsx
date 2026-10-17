@@ -48,9 +48,8 @@ export const Hero: React.FC<HeroProps> = ({ playTick, onOpenCvModal }) => {
 
         {/* Bio Editorial Paragraph */}
         <p className="max-w-2xl text-base sm:text-lg text-[var(--text-muted)] leading-relaxed mb-10 mx-auto md:mx-0">
-          Software Engineering specialist at <strong className="text-[var(--text-primary)]">Zetech University</strong>. 
-          Architecting robust production platforms with an offensive cybersecurity mindset. 
-          Balancing zero-trust security with fluid, high-velocity full-stack engineering.
+          Systems &amp; Security Engineer specializing in real-time trading engines and low-latency distributed architectures. 
+          Architecting robust production platforms with an offensive zero-trust mindset, bridging high-throughput data pipelines with resilient, fault-tolerant execution.
         </p>
 
         {/* CTA Magnetic Buttons */}

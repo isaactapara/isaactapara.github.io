@@ -318,6 +318,18 @@ a {
     border-radius: 50%;
 }
 
+.timeline-content {
+    position: relative;
+}
+
+.timeline-date {
+    font-family: var(--font-code);
+}
+
+.timeline-company {
+    color: var(--accent-blue);
+}
+
 /* Swiper 3D Deck Container */
 .projects-layout {
     position: relative;

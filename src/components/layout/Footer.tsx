@@ -20,7 +20,7 @@ export const Footer: React.FC<FooterProps> = ({ playTick, onOpenCvModal }) => {
             SILISIL ISAAC TAPARA
           </div>
           <div className="text-xs font-mono text-[var(--text-muted)] mt-1">
-            Secure Software Engineer &amp; Ethical Hacker // Zetech University
+            Secure Software Engineer &amp; Ethical Hacker // Real-Time Trading &amp; Systems Architecture
           </div>
           <div className="text-[10px] font-mono text-[var(--accent-green)] mt-2">
             © 2026 ALL RIGHTS RESERVED // VERIFIED ZERO-TRUST DEPLOYMENT

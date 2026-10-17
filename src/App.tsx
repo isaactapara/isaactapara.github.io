@@ -83,6 +83,7 @@ export function App() {
           <TerminalUplink
             onHackEasterEgg={handleMainframeHack}
             playTick={playTick}
+            onSetTheme={setTheme}
           />
 
           <Contact playTick={playTick} />

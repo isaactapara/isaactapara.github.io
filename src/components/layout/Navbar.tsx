@@ -22,7 +22,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   const navLinks = [
     { label: '01. About', href: '#about', id: 'about' },
     { label: '02. Systems', href: '#projects', id: 'projects' },
-    { label: '03. Timeline', href: '#experience', id: 'experience' },
+    { label: '03. Experience', href: '#experience', id: 'experience' },
     { label: '04. Uplink', href: '#uplink', id: 'uplink' },
     { label: '05. Contact', href: '#contact', id: 'contact' },
   ];
@@ -91,7 +91,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     handleNavClick(link.href);
                   }}
                   onMouseEnter={() => playTick && playTick()}
-                  className={`text-sm font-mono tracking-wide transition-colors ${
+                  className={`hover-sound text-sm font-mono tracking-wide transition-colors ${
                     isActive
                       ? 'text-[var(--accent-blue)] font-semibold'
                       : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
@@ -217,7 +217,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 e.preventDefault();
                 handleNavClick(link.href);
               }}
-              className="block text-3xl font-heading font-bold mb-6 text-[var(--text-primary)] hover:text-[var(--accent-blue)] transition-colors"
+              className="hover-sound block text-3xl font-heading font-bold mb-6 text-[var(--text-primary)] hover:text-[var(--accent-blue)] transition-colors"
             >
               {link.label}
             </a>
