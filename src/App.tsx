@@ -1,81 +1,109 @@
-// React import not needed in React 17+ with JSX transform
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Resume from './components/Resume';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import Terminal from './components/Terminal';
+import { useState, useCallback } from 'react';
+import { useTheme } from './hooks/useTheme';
+import { useSound } from './hooks/useSound';
+import MatrixRain from './components/background/MatrixRain';
+import GlitchOverlay from './components/background/GlitchOverlay';
+import SoundToggle from './components/common/SoundToggle';
+import Marquee from './components/common/Marquee';
 import SmoothScroll from './components/ui/SmoothScroll';
-import { useDarkMode } from './hooks/useDarkMode';
-import { Terminal as TerminalIcon } from 'lucide-react';
+import BootTerminal from './components/sections/BootTerminal';
+import Navbar from './components/layout/Navbar';
+import Hero from './components/sections/Hero';
+import AboutGazette from './components/sections/AboutGazette';
+import ProjectsDeck from './components/sections/ProjectsDeck';
+import Experience from './components/sections/Experience';
+import TerminalUplink from './components/sections/TerminalUplink';
+import Contact from './components/sections/Contact';
+import Footer from './components/layout/Footer';
+import CvTerminalModal from './components/modals/CvTerminalModal';
 
-function App() {
-  const [isTerminalOpen, setIsTerminalOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+export function App() {
+  const { theme, setTheme } = useTheme();
+  const { soundEnabled, toggleSound, playTick, playGlitchSound } = useSound();
 
-  // Initialize dark mode
-  useDarkMode();
+  const [isBooted, setIsBooted] = useState(false);
+  const [isCvModalOpen, setIsCvModalOpen] = useState(false);
+  const [isGlitchActive, setIsGlitchActive] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+  // Easter egg handler when 5 words are typed in Terminal Uplink
+  const handleMainframeHack = useCallback(() => {
+    setIsGlitchActive(true);
+    playGlitchSound();
+    setTheme('cyber');
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Keyboard shortcut for terminal
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.ctrlKey && e.key === 'k') || e.key === '`') {
-        e.preventDefault();
-        setIsTerminalOpen(prev => !prev);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+    setTimeout(() => {
+      setIsGlitchActive(false);
+    }, 2500);
+  }, [playGlitchSound, setTheme]);
 
   return (
     <SmoothScroll>
-      <div className="min-h-screen bg-gray-50 dark:bg-dark-900 text-dark-900 dark:text-white transition-colors duration-300 bg-grid-pattern">
-        <Terminal isOpen={isTerminalOpen} onClose={() => setIsTerminalOpen(false)} />
+      {/* Background Matrix Rain Procedural Canvas */}
+      <MatrixRain />
 
-        {/* Floating Terminal Button */}
-        <motion.button
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={() => setIsTerminalOpen(true)}
-          className="fixed bottom-6 left-6 z-40 p-3 bg-dark-900 dark:bg-primary-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
-          title="Open Terminal (Ctrl+K)"
-        >
-          <TerminalIcon size={24} />
-          <span className="absolute left-full ml-3 px-2 py-1 bg-dark-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-            Open Terminal (Ctrl+K)
-          </span>
-        </motion.button>
+      {/* Mainframe Hack Chromatic Aberration Glitch Overlay */}
+      <GlitchOverlay active={isGlitchActive} />
 
-        <Header isScrolled={isScrolled} />
+      {/* Initial Terminal Diagnostics Boot Screen */}
+      {!isBooted && (
+        <BootTerminal
+          onComplete={() => setIsBooted(true)}
+          playTick={playTick}
+        />
+      )}
 
+      {/* Main Portfolio Wrapper */}
+      <div className="relative min-h-screen text-[var(--text-primary)] selection:bg-[var(--accent-green)] selection:text-[var(--bg-main)]">
+        {/* Navigation & Header */}
+        <Navbar
+          currentTheme={theme}
+          onSelectTheme={setTheme}
+          onOpenCvModal={() => setIsCvModalOpen(true)}
+          playTick={playTick}
+        />
+
+        {/* Core Layout Sections */}
         <main>
-          <Hero />
-          <About />
-          <Skills />
-          <Projects />
-          <Resume />
-          <Contact />
+          <Hero
+            playTick={playTick}
+            onOpenCvModal={() => setIsCvModalOpen(true)}
+          />
+
+          <Marquee />
+
+          <AboutGazette playTick={playTick} />
+
+          <ProjectsDeck playTick={playTick} />
+
+          <Experience playTick={playTick} />
+
+          <TerminalUplink
+            onHackEasterEgg={handleMainframeHack}
+            playTick={playTick}
+          />
+
+          <Contact playTick={playTick} />
         </main>
 
-        <Footer />
+        {/* Brutalist Footer */}
+        <Footer
+          playTick={playTick}
+          onOpenCvModal={() => setIsCvModalOpen(true)}
+        />
+
+        {/* Floating Sound Toggle */}
+        <SoundToggle
+          soundEnabled={soundEnabled}
+          onToggle={toggleSound}
+          onTick={playTick}
+        />
+
+        {/* Fullscreen CV Stream Terminal & PDF Generator Modal */}
+        <CvTerminalModal
+          isOpen={isCvModalOpen}
+          onClose={() => setIsCvModalOpen(false)}
+          playTick={playTick}
+        />
       </div>
     </SmoothScroll>
   );

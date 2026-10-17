@@ -1,0 +1,132 @@
+/* =========================================
+   Portfolio Design Tokens & 5-Theme Engine
+   ========================================= */
+
+:root, [data-theme="dark"] {
+    /* Colors - Dark Neumorphic (Default) */
+    --bg-main: #1A1B1E;
+    --bg-card: #202124;
+    --bg-panel: rgba(26, 27, 30, 0.85);
+    
+    --text-primary: #FFFFFF;
+    --text-muted: #A0A0A0;
+    
+    --accent-blue: #FFFFFF;
+    --accent-blue-glow: rgba(255, 255, 255, 0.2);
+    
+    --accent-green: #FFFFFF;
+    --accent-green-glow: rgba(255, 255, 255, 0.1);
+
+    --img-filter: grayscale(80%);
+    
+    /* 3D Shadows & Borders */
+    --shadow-dark: rgba(0, 0, 0, 0.9);
+    --shadow-light: rgba(255, 255, 255, 0.15);
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] {
+    /* Colors - Light Editorial */
+    --bg-main: #F4F4F0; /* Cream paper */
+    --bg-card: #FFFFFF;
+    --bg-panel: rgba(244, 244, 240, 0.9);
+    
+    --text-primary: #111111;
+    --text-muted: #444444;
+    
+    --accent-blue: #000000;
+    --accent-blue-glow: rgba(0, 0, 0, 0.1);
+    
+    --accent-green: #D32F2F; /* Editorial red */
+    --accent-green-glow: rgba(211, 47, 47, 0.1);
+
+    --img-filter: grayscale(100%) sepia(20%) contrast(1.2);
+    
+    /* 3D Shadows & Borders */
+    --shadow-dark: rgba(0, 0, 0, 0.3);
+    --shadow-light: rgba(255, 255, 255, 1);
+    --border-color: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="cyber"] {
+    /* Colors - Cyber Hacker */
+    --bg-main: #000000;
+    --bg-card: #0A0A0A;
+    --bg-panel: rgba(0, 0, 0, 0.9);
+    
+    --text-primary: #00FF41; /* Matrix Green */
+    --text-muted: #008F11;
+    
+    --accent-blue: #00FFFF; /* Cyan */
+    --accent-blue-glow: rgba(0, 255, 255, 0.3);
+    
+    --accent-green: #00FF41;
+    --accent-green-glow: rgba(0, 255, 65, 0.3);
+
+    --img-filter: grayscale(30%) sepia(100%) hue-rotate(80deg) saturate(300%) contrast(1.5);
+    
+    /* 3D Shadows & Borders */
+    --shadow-dark: rgba(0, 0, 0, 0.9);
+    --shadow-light: rgba(0, 255, 255, 0.2);
+    --border-color: rgba(0, 255, 65, 0.2);
+}
+
+[data-theme="synthwave"] {
+    /* Colors - Neon Synthwave */
+    --bg-main: #0B0014; /* Deep violet */
+    --bg-card: #150029;
+    --bg-panel: rgba(11, 0, 20, 0.85);
+    
+    --text-primary: #FF00FF; /* Hot Pink */
+    --text-muted: #FFB3FF;
+    
+    --accent-blue: #00FFFF; /* Cyan */
+    --accent-blue-glow: rgba(0, 255, 255, 0.5);
+    
+    --accent-green: #FF00FF;
+    --accent-green-glow: rgba(255, 0, 255, 0.5);
+
+    --img-filter: hue-rotate(240deg) saturate(200%) contrast(1.2);
+    
+    /* 3D Shadows & Borders */
+    --shadow-dark: rgba(0, 0, 0, 0.8);
+    --shadow-light: rgba(0, 255, 255, 0.3);
+    --border-color: rgba(255, 0, 255, 0.2);
+}
+
+[data-theme="brutalist"] {
+    /* Colors - OLED Brutalist */
+    --bg-main: #000000;
+    --bg-card: #000000;
+    --bg-panel: rgba(0, 0, 0, 1);
+    
+    --text-primary: #FFFFFF;
+    --text-muted: #CCCCCC;
+    
+    --accent-blue: #FFFFFF;
+    --accent-blue-glow: rgba(255, 255, 255, 0);
+    
+    --accent-green: #FFFFFF;
+    --accent-green-glow: rgba(255, 255, 255, 0);
+
+    --img-filter: grayscale(100%) contrast(200%);
+    
+    /* 3D Shadows & Borders */
+    --shadow-dark: transparent;
+    --shadow-light: transparent;
+    --border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Global Tokens */
+:root {
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-code: 'JetBrains Mono', monospace;
+    
+    --term-red: #FF3B30;
+    --term-yellow: #FFCC00;
+    --term-green: #34C759;
+    
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+}
