@@ -71,7 +71,10 @@ export function App() {
 
           <Marquee />
 
-          <AboutGazette playTick={playTick} />
+          <AboutGazette
+            playTick={playTick}
+            onOpenCvModal={() => setIsCvModalOpen(true)}
+          />
 
           <ProjectsDeck playTick={playTick} />
 

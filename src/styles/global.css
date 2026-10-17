@@ -258,24 +258,37 @@ a {
     color: var(--text-primary);
 }
 
-.gazette-image-box {
+.gazette-image-box,
+.image-wrapper {
     position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 440px;
     overflow: hidden;
     border-radius: 4px;
-    border: 1px solid var(--border-color);
 }
 
+.frameless-mask {
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+.profile-img-fluid,
 .fluid-blur-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top center;
+    border-radius: 4px;
     filter: blur(20px) grayscale(100%) brightness(0.6);
     transform: scale(1.1);
-    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-    transition: filter 0.8s cubic-bezier(0.19, 1, 0.22, 1), transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-    display: block;
+    transition: filter 1.2s cubic-bezier(0.19, 1, 0.22, 1), transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
+.image-wrapper:hover .profile-img-fluid,
 .gazette-image-box:hover .fluid-blur-image {
     filter: blur(0px) grayscale(0%) brightness(1);
     transform: scale(1);
